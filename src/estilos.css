@@ -1,0 +1,29 @@
+:root{
+    --colorAzul: #3399c9;
+}
+*{
+    font-family: "Jost", sans-serif; 
+    padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.jost {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.options button{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.options button:hover{
+    background-color: var(--colorAzul);
+    color: white;
+}
+button.selected {
+    color: #fff;
+    background-color: var(--colorAzul);
+}

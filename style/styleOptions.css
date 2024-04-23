@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+}
+
+:root {
+    --colorBlancoLigero: #f6f9f5;
+    --colorBlanco: #fff;
+    --colorRojo: #e53a3a;
+    --colorVerde: #8DDF80;
+    --colorAzul: #3399c9;
+    --colorBlack: #000;
+}
+
+/* ESTILOS DE ESTUDIANTES */
+
+body {
+    background-color: var(--colorBlancoLigero);
+
+    & main {
+        & .articleAll {
+            height: 100vh;
+            display: flex;
+
+            & .section-nav {
+                width: 15vw;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                background-color: var(--colorBlanco);
+
+                & .div1 {
+                    display: flex;
+                    flex-direction: column;
+
+                    & i {
+                        font-size: 2.5rem;
+                        margin-top: 5vh;
+                        padding: 20px;
+                        background-color: var(--colorAzul);
+                        border-radius: 10px;
+                        color: var(--colorBlanco);
+                    }
+                }
+
+                & .div2 {
+
+                    & i {
+                        font-size: 2.5rem;
+                        margin-bottom: 5vh;
+                        padding: 20px;
+                        background-color: var(--colorAzul);
+                        border-radius: 10px;
+                        color: var(--colorBlanco);
+                    }
+                }
+            }
+
+            & .section-container {
+                width: 85vw;
+                display: flex;
+                align-items: center;
+
+                & .exit {
+                    position: absolute;
+                    right: 3%;
+                    top: 3%;
+                    padding: 10px;
+                    background-color: var(--colorAzul);
+                    border-radius: 10px;
+                    color: var(--colorBlanco);
+                    border: none;
+                    cursor: pointer;
+                }
+
+                & .general {
+                    width: 30vw;
+                }
+
+                & .container-article2 {
+                    & .school {
+                        width: 45vw;
+                    }
+
+                    & .contact {
+                        width: 45vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+}
+
+.info {
+    padding: 10px;
+}
+
+:where(.general, .school, .contact) {
+    background-color: var(--colorBlanco);
+    margin: 3%;
+}
+
+/* ESTILOS DEL CALENDARIO */
+
+.container {
+    width: 60vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    & .calendar {
+        width: 100%;
+        max-width: 600px;
+        padding: 30px 20px;
+        border-radius: 10px;
+
+        & .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+    }
+}
+
+& .calendar .header .month {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.calendar .header .btns {
+    display: flex;
+    gap: 10px;
+}
+
+.calendar .header .btns .btn {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: #fff;
+    background-color: var(--colorAzul);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.calendar .header .btns .btn:hover {
+    background-color: var(--colorAzul);
+    transform: scale(1.05);
+}
+
+.weekdays {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weekdays .day {
+    width: calc(100% / 7 - 10px);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.days .day {
+    width: calc(100% / 7 - 10px);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color);
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.days .day:not(.next):not(.prev):hover {
+    color: #fff;
+    background-color: var(--colorAzul);
+    transform: scale(1.05);
+}
+
+.days .day.today {
+    color: #fff;
+    background-color: var(--colorAzul);
+}
+
+.days .day.next,
+.days .day.prev {
+    color: #ccc;
+}
+
+.new_date {
+    width: 50%;
+    border: none;
+    padding: 10px;
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.datesCits {
+    width: 25vw;
+    height: 80vh;
+    background-color: var(--colorBlanco);
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+
+    & .list {
+        & h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background-color: var(--colorAzul);
+            color: var(--colorBlanco);
+            border-radius: 10px 10px 0 0;
+        }
+    }
+}
+
+/* FORMUALRIO NUEVO CALENDARIO */
+.formulario {
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    & .cerrar {
+        background-color: var(--colorRojo);
+        color: var(--colorBlanco);
+        border: none;
+        padding: 15px;
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        cursor: pointer;
+    }
+
+    & .agendar {
+        background-color: var(--colorAzul);
+        color: var(--colorBlanco);
+        border: none;
+        border-radius: 10px;
+        padding: 15px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    :where(form) {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--colorBlanco);
+        padding: 2rem;
+        border-radius: 10px 0 0 10px;
+        cursor: pointer;
+        height: 60vh;
+    }
+
+    :where(input) {
+        border: none;
+        padding: 1rem;
+        margin: 0.4rem;
+        width: 90%;
+        font-size: 1.2rem;
+        border-bottom: 2px solid var(--colorAzul);
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    & section {
+        background-color: var(--colorBlanco);
+        border-radius: 0 10px 10px 0;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            max-width: 70%;
+            height: 100%;
+        }
+    }
+}

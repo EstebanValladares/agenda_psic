@@ -53,7 +53,7 @@
                             <a href="#" class="text-base" style=" color:#053B5E">¿Olvidaste tu contraseña?</a>
                         </div>
                         <div>
-                            <input name="btningresar" type="submit" value="Login →" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md " ></input>
+                            <input name="btningreso" type="submit" value="Login →" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md " ></input>
                         </div>
                         
                     </div>   

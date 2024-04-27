@@ -6,7 +6,7 @@
 }
 
 :root {
-    --colorBlancoLigero: #f6f9f5;
+    --colorBlancoLigero: #ececec;
     --colorBlanco: #fff;
     --colorRojo: #e53a3a;
     --colorVerde: #8DDF80;
@@ -322,4 +322,61 @@ h2 {
             height: 100%;
         }
     }
+}
+/* Formulario flotante docentes */
+.formularioDoc{
+    border-radius: 10px;
+}
+.titulo_cita{
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+.selectec_sem {
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    appearance: none;
+    -webkit-appearance: none;
+    background-position: right 10px top 50%, 0 0; 
+    background-size: 1.2em auto, 100%;
+}
+
+.selectec_sem:focus {
+    border-color: #5b9dd9;
+    box-shadow: 0 0 2px rgba(81, 203, 238, 1);
+    outline: none;
+}
+
+.selectec_sem option {
+    padding: 10px;
+}
+.selected_car {
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    appearance: none;
+    -webkit-appearance: none;
+    background-position: right 10px top 50%, 0 0; 
+    background-size: 1.2em auto, 100%;
+}
+
+.selected_car:focus {
+    border-color: #5b9dd9;
+    box-shadow: 0 0 2px rgba(81, 203, 238, 1);
+    outline: none;
+}
+
+.selected_car option {
+    padding: 10px;
+}
+.info p{
+    color: var(--colorBlack);
 }

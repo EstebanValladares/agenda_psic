@@ -11,19 +11,21 @@ if (empty($_SESSION["id"])){
 
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../style/styleOptions.css">
-    <link href="../src/output.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/7f04a31559.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- hojas de estilos de css -->
+<link rel="stylesheet" href="../style/styleOptions.css">
+<link rel="stylesheet" href="../src/estilos.css">
+<!-- link de tailwind -->
+<link href="../src/output.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+<!-- fonts determinadas para el proyecto -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- fontawesome en diferentes cuentas  -->
+<script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/7f04a31559.js" crossorigin="anonymous"></script>
     <title>Calendario</title>
 </head>
 
@@ -83,14 +85,14 @@ if (empty($_SESSION["id"])){
         <article class="formulario">
             <button class="cerrar"><i class="fa-solid fa-x"></i></button>
                 
-<section class="min-h-screen flex items-center justify-center rounded-lg shadow-lg">
-    <div class="bg-white flex flex-col items-center p-10">
-        <h1 class="text-2xl p-5">Registrar cita</h1>
+<section>
+    <div class="bg-white flex flex-col items-center p-10 formularioDoc">
+        <h1 class="titulo_cita">Registrar cita</h1>
         <div id="mensaje" ></div> 
         <form id="formulario" class="flex flex-col gap-4 w-full">
             <input type="text" name="nombre" placeholder="Nombre" class="p-2 mt-8 border-b-2 focus:outline-none focus:border-blue-400">
             <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
-            <select name="semestre" id="semestre" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
+            <select name="semestre" id="semestre" class="selectec_sem">
                 <option value="">semestre</option>
                 <?php
                 for ($i = 1; $i <= 12; $i++) {
@@ -98,7 +100,7 @@ if (empty($_SESSION["id"])){
                 }
                 ?>
             </select>
-            <select name="carrera" id="carrera" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
+            <select name="carrera" id="carrera" class="selected_car">
                 <option value="">Seleccione una carrera</option>
                 <?php
                 $carreras = array("ING.INDUSTRIAL", "ING.SISTEMAS", "ING.GESTION", "ING.AMBIENTAL", "ING.ALIMENTARIAS", "ING.AGRONOMIA");

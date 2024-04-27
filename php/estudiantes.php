@@ -4,8 +4,27 @@ if (empty($_SESSION["id"])){
     header("location: index.php");
 }
 $nombre = $_SESSION["nombre"];
-$apellidos = $_SESSION["apellido"];
-$contra = $_SESSION["contra"];
+$numero_control = $_SESSION["numero_control"];
+$apellido_paterno = $_SESSION["apellido_paterno"];
+$apellido_materno = $_SESSION["apellido_materno"];
+$curp = $_SESSION["curp"];
+$fecha_nacimiento = $_SESSION["fecha_nacimiento"];
+$genero = $_SESSION["genero"];
+$estado_civil = $_SESSION["estado_civil"];
+$nacionalidad = $_SESSION["nacionalidad"];
+$telefono = $_SESSION["telefono"];
+$correo_electronico = $_SESSION["correo_electronico"];
+$calle_numero = $_SESSION["calle_numero"];
+$colonia = $_SESSION["colonia"];
+$estado = $_SESSION["estado"];
+$municipio = $_SESSION["municipio"];
+$unidad_medica = $_SESSION["unidad_medica"];
+$cve_reticula = $_SESSION["cve_reticula"];
+$carrera = $_SESSION["carrera"];
+$cve_especialidad = $_SESSION["cve_especialidad"];
+$especialidad = $_SESSION["especialidad"];
+$estatus = $_SESSION["estatus"];
+$semestre = $_SESSION["semestre"];
 ?>
 
 <!DOCTYPE html>
@@ -43,13 +62,9 @@ $contra = $_SESSION["contra"];
                         <figure>
                             <i class="fa-solid fa-user"></i>
                         </figure>
-                        <p class="apellido">Nombre: <?php
-                        echo "$nombre "; 
-                        ?> </p>
-                        <p class="datesApellido">Apellidos: <?php echo "$apellidos"; ?> </p>
-                        <p>CURP: RIPY980914HTSCRD03</p>
-                        <p>Fecha de nacimiento: 14 de Septiembre de 1998</p>
-                        <p>Correo electrónico: esteban1057deluxe@gmsil.com</p>
+                        <p>Nombre: <?php echo "$nombre "?> </p>
+                        <p>numero de control: <?php echo "$numero_control"?> </p>
+                        
                     </section>
                 </article>
                 <article class="container-article2">

@@ -302,7 +302,7 @@ h2 {
         margin: 0.4rem;
         width: 90%;
         font-size: 1.2rem;
-        border-bottom: 2px solid var(--colorAzul);
+       /*  border-bottom: 2px solid var(--colorAzul); */
     }
 
     input:focus {

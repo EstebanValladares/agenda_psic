@@ -33,8 +33,8 @@
                 <h2 class=" text-4xl font-semibold mb-2  mt-5 " style=" color:#053B5E">BIENVENIDO</h2>
                 <p class=" text-base italic" style=" color:#053B5E">Ingresa tu numero de tarjeta y la contraseña "tecvalles"</p>
                 <?php
-                include "../php/conexion_bd.php";
-                include "../php/controlador_login.php";
+                include "../php/controllers/conexion_bd.php";
+                include "../php/auth/controlador_login.php";
                 ?>
                 </div>
                 <?php

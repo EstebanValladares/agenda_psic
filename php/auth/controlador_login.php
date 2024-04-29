@@ -30,7 +30,7 @@ if (!empty($_POST["btningresar"])){
             $_SESSION["especialidad"]=$datos->especialidad;
             $_SESSION["estatus"]=$datos->estatus;
             $_SESSION["semestre"]=$datos->semestre; */
-            header("location: ../php/calendarioEstudiantes.php");
+            header("location: ../php/views/calendarioEstudiantes.php");
         }else{
             echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1">Usuario o contrasena incorrectos</div>';
         }
@@ -56,7 +56,7 @@ if (!empty($_POST["btningreso"])){
             $_SESSION["estatus"]=$datos->estatus;
             $_SESSION["departamento"]=$datos->departamento;
             $_SESSION["academia"]=$datos->academia;
-            header("location: ../php/calendarioDocentes.php");
+            header("location: ../php/views/calendarioDocentes.php");
         }else{
             echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1">Usuario o contrasena incorrectos</div>';
         }

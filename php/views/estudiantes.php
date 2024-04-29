@@ -55,7 +55,7 @@ $semestre = $_SESSION["semestre"];
                 </div>
             </section>
             <section class="section-container">
-                <a href="cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
+                <a href="/php/auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <article class="general">
                     <h2>Información general</h2>
                     <section class="info">

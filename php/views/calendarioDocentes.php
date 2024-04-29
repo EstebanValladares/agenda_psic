@@ -42,7 +42,7 @@ if (empty($_SESSION["id"])){
                 </div>
             </section>
             <section class="section-container">
-            <a href="cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
+            <a href="/php/auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <div class="container">
                     <div class="calendar">
                         <div class="header">

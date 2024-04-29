@@ -42,7 +42,7 @@ if (empty($_SESSION["id"])){
                 </div>
             </section>
             <section class="section-container">
-            <a href="cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
+            <a href="../auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <div class="container">
                     <div class="calendar">
                         <div class="header">
@@ -86,34 +86,34 @@ if (empty($_SESSION["id"])){
             <button class="cerrar"><i class="fa-solid fa-x"></i></button>
                 
             <section>
-    <div class="bg-white flex flex-col items-center p-10 formularioDoc">
-        <h1 class="titulo_cita">Registrar cita</h1>
-        <div id="mensaje" ></div> 
-        <form id="formulario" class="flex flex-col gap-4 w-full">
-            <input type="text" name="nombre" placeholder="Nombre" class="p-2 mt-8 border-b-2 focus:outline-none focus:border-blue-400">
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
-            <select name="semestre" id="semestre" class="selectec_sem">
-                <option value="">semestre</option>
-                <?php
-                for ($i = 1; $i <= 12; $i++) {
-                    echo "<option value='$i'>$i</option>";
-                }
-                ?>
-            </select>
-            <select name="carrera" id="carrera" class="selected_car">
-                <option value="">Seleccione una carrera</option>
-                <?php
-                $carreras = array("ING.INDUSTRIAL", "ING.SISTEMAS", "ING.GESTION", "ING.AMBIENTAL", "ING.ALIMENTARIAS", "ING.AGRONOMIA");
-                foreach ($carreras as $carrera) {
-                    echo "<option value='$carrera'>$carrera</option>";
-                }
-                ?>
-            </select>
-            <input type="date" name="fecha" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
-            <button type="submit" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md">Registrar</button>
-        </form>
-    </div>
-</section>
+                <div class="bg-white flex flex-col items-center p-10 formularioDoc">
+                    <h1 class="titulo_cita">Registrar cita</h1>
+                        <div id="mensaje" ></div> 
+                            <form id="formulario" class="flex flex-col gap-4 w-full">
+                                <input type="text" name="nombre" placeholder="Nombre" class="">
+                                <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
+                                <select name="semestre" id="semestre" class="selectec_sem">
+                                    <option value="">semestre</option>
+                                        <?php
+                                        for ($i = 1; $i <= 12; $i++) {
+                                        echo "<option value='$i'>$i</option>";
+                                        }
+                                        ?>
+                                </select>
+                                <select name="carrera" id="carrera" class="selected_car">
+                                    <option value="">Seleccione una carrera</option>
+                                        <?php
+                                        $carreras = array("ING.INDUSTRIAL", "ING.SISTEMAS", "ING.GESTION", "ING.AMBIENTAL", "ING.ALIMENTARIAS", "ING.AGRONOMIA");
+                                        foreach ($carreras as $carrera) {
+                                        echo "<option value='$carrera'>$carrera</option>";
+                                        }
+                                        ?>
+                                </select>
+                                <input type="date" name="fecha" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
+                                <button type="submit" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md">Registrar</button>
+                            </form>
+                        </div>
+            </section>
         </article>
     </main>
 </body>

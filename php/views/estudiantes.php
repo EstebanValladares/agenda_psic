@@ -34,7 +34,7 @@ $semestre = $_SESSION["semestre"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../style/styleOptions.css">
+    <link rel="stylesheet" href="../../style/styleOptions.css">
     <link href="../login-tec/src/estilos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,8 +47,8 @@ $semestre = $_SESSION["semestre"];
         <article class="articleAll">
             <section class="section-nav">
             <div class="div1">
-                    <a href="estudiantes.php"><i class="fa-solid fa-user iconUser"></i></a>
-                    <a href="calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
+                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i></a>
+                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
                 </div>
                 <div class="div2">
                     <a href=""><i class="fa-solid fa-gear"></i></a>

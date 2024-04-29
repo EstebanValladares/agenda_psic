@@ -13,8 +13,8 @@ if (empty($_SESSION["id"])){
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- hojas de estilos de css -->
-<link rel="stylesheet" href="../style/styleOptions.css">
-<link rel="stylesheet" href="../src/estilos.css">
+<link rel="stylesheet" href="../../style/styleOptions.css">
+<link rel="stylesheet" href="../../src/estilos.css">
 <!-- link de tailwind -->
 <link href="../src/output.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
@@ -34,8 +34,8 @@ if (empty($_SESSION["id"])){
         <article class="articleAll">
             <section class="section-nav">
                 <div class="div1">
-                    <a href="estudiantes.php"><i class="fa-solid fa-user iconUser"></i></a>
-                    <a href="calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
+                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i></a>
+                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
                 </div>
                 <div class="div2">
                     <a href=""><i class="fa-solid fa-gear"></i></a>
@@ -117,6 +117,6 @@ if (empty($_SESSION["id"])){
         </article>
     </main>
 </body>
-    <script src="../js/app.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/script.js"></script>
 </html>

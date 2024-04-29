@@ -34,8 +34,8 @@ if (empty($_SESSION["id"])){
         <article class="articleAll">
             <section class="section-nav">
                 <div class="div1">
-                    <a href="docentes.php"><i class="fa-solid fa-user iconUser"></i></a>
-                    <a href="calendarioDocentes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
+                    <a href="../views/docentes.php"><i class="fa-solid fa-user iconUser"></i></a>
+                    <a href="../views/calendarioDocentes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
                 </div>
                 <div class="div2">
                     <a href=""><i class="fa-solid fa-gear"></i></a>

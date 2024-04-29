@@ -21,7 +21,7 @@ $academia = $_SESSION["academia"];
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../style/styleOptions.css">
+    <link rel="stylesheet" href="../../style/styleOptions.css">
     <link href="../login-tec/src/estilos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@ $academia = $_SESSION["academia"];
                 </div>
             </section>
             <section class="section-container">
-                <a href="cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
+                <a href="../auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <article class="general">
                     <h2>Información general</h2>
                     <section class="info">

@@ -13,7 +13,11 @@ $estatus = $_SESSION["estatus"];
 $departamento = $_SESSION["departamento"];
 $academia = $_SESSION["academia"];
 ?>
-
+<?php 
+    if($_SESSION['password'] === 'tecvalles'){
+        echo "<p class='alertaContraseña'>Cambiar la contraseña al nip institucional</p>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +48,7 @@ $academia = $_SESSION["academia"];
             <section class="section-container">
                 <a href="../auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <article class="general">
-                    <h2>Información general</h2>
+                    <h2 class="cards">Información general</h2>
                     <section class="info">
                         <figure>
                             <i class="fa-solid fa-user"></i>
@@ -56,7 +60,7 @@ $academia = $_SESSION["academia"];
                     </section>
                 </article>
                 <article class="general">
-                    <h2>Información del docente</h2>
+                    <h2 class="cards">Información del docente</h2>
                     <section class="school">
                         <p>NOMBRE: <?php echo "$nombre" ?></p>
                         <p>NOMBRAMINETO: <?php echo "$nombramiento" ?></p>

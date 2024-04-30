@@ -3,9 +3,12 @@ session_start();
 if (empty($_SESSION["id"])){
     header("location: index.php");
 }
-
 ?>
-
+<?php 
+    if($_SESSION['password'] === 'tecvalles'){
+        echo "<p class='alertaContraseña'>Cambiar la contraseña al nip institucional</p>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

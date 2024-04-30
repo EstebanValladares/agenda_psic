@@ -97,10 +97,8 @@ body {
 h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    background-color: var(--colorAzul);
     color: var(--colorBlanco);
     border-radius: 10px 10px 0 0;
-    padding: 10px;
 }
 
 .info {
@@ -379,4 +377,25 @@ h2 {
 }
 .info p{
     color: var(--colorBlack);
+}
+.cards{
+    background-color: var(--colorAzul);
+    padding: 10px;
+}
+.alertaContraseña{
+    color: var(--colorBlanco);
+    background-color: var(--colorRojo);
+    position: absolute;
+    padding: 15px;
+    font-size: 1.4rem;
+    right: 2%;
+    bottom: 3%;
+}
+@keyframes blink{
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.alertaContraseña{
+    animation: blink 2s infinite;
 }

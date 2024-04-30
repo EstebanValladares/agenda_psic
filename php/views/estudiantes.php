@@ -23,7 +23,11 @@ $especialidad = $_SESSION["especialidad"];
 $estatus = $_SESSION["estatus"];
 $semestre = $_SESSION["semestre"]; */
 ?>
-
+<?php 
+    if($_SESSION['password'] === 'tecvalles'){
+        echo "<p class='alertaContraseña'>Cambiar la contraseña al nip institucional</p>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,32 +58,40 @@ $semestre = $_SESSION["semestre"]; */
             <section class="section-container">
                 <a href="/php/auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <article class="general">
-                    <h2>Información general</h2>
+                    <h2 class="cards">Información general</h2>
                     <section class="info">
                         <figure>
                             <i class="fa-solid fa-user"></i>
                         </figure>
                         <p>Nombre: <?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido_paterno'] . " " . $_SESSION['apellido_materno'];  ?> </p>
-                        <p>numero de control: <?php ?> </p>
+                        <p>curp: <?php echo $_SESSION['curp'] ?> </p>
+                        <p>Fecha de nacimiento: <?php echo $_SESSION['fecha_nacimiento'] ?> </p>
+                        <p>Genero: <?php echo $_SESSION['genero'] ?> </p>
+                        <p>Estado civil: <?php echo $_SESSION['estado_civil'] ?> </p>
+                        <p>Nacionalidadl: <?php echo $_SESSION['nacionalidad'] ?> </p>
+                        <p>Telefono: <?php echo $_SESSION['telefono'] ?> </p>
+                        <p>Correo electrónico: <?php echo $_SESSION['correo_electronico'] ?> </p>
                         
                     </section>
                 </article>
                 <article class="container-article2">
                     <section class="school">
-                        <h2>Información escolar</h2>
+                        <h2 class="cards">Información escolar</h2>
                         <section class="info">
-                            <p>Nº de control: 19690148</p>
-                            <p>Estatus: AEE / Activo con especiales</p>
-                            <p>Carrera: Ingenieria En Sistemas Computacionales / 42 / Escolarizado</p>
-                            <p>Especialidad: 40 / Desarrollo Full Stack</p>
+                        <p>No. control: <?php echo $_SESSION['numero_control'] ?> </p>
+                        <p>Semestre: <?php echo $_SESSION['semestre'] ?> </p>
+                        <p>Carrera: <?php echo $_SESSION['carrera'] ?> </p>
+                        <p>Especialidad: <?php echo $_SESSION['especialidad'] ?> </p>
                         </section>
                     </section>
                     <section class="contact">
-                        <h2>Información de contacto</h2>
+                        <h2 class="cards">Información de contacto</h2>
                         <section class="info">
-                            <p>Calle y número: plaza eoliza #313</p>
-                            <p>Colonia: carmen 3</p>
-                            <p>Municipio: ciudad valles</p>
+                        <p>Calle: <?php echo $_SESSION['calle_numero'] ?> </p>
+                        <p>Colonia: <?php echo $_SESSION['colonia'] ?> </p>
+                        <p>Municipio: <?php echo $_SESSION['municipio'] ?> </p>
+                        <p>Estado: <?php echo $_SESSION['estado'] ?> </p>
+                        <p>Podigo postal: <?php echo $_SESSION['codigo_postal'] ?> </p>
                         </section>
                     </section>
                 </article>

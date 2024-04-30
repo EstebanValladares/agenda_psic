@@ -5,7 +5,11 @@ if (empty($_SESSION["id"])){
 }
 
 ?>
-
+<?php 
+    if($_SESSION['password'] === 'tecvalles'){
+        echo "<p class='alertaContraseña'>Cambiar la contraseña al nip institucional</p>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

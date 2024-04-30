@@ -47,7 +47,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include "../php/conexion_bd.php";
+                        include "../controllers/conexion_bd.php";
                         $sql = $conexion->query("SELECT * FROM citasprueba");
                         while ($datos = $sql->fetch_object()) { ?>
                         <tr>

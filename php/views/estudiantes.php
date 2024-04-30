@@ -3,10 +3,7 @@ session_start();
 if (empty($_SESSION["id"])){
     header("location: index.php");
 }
-$nombre = $_SESSION["nombre"];
-$numero_control = $_SESSION["numero_control"];
-$apellido_paterno = $_SESSION["apellido_paterno"];
-$apellido_materno = $_SESSION["apellido_materno"];
+/*
 $curp = $_SESSION["curp"];
 $fecha_nacimiento = $_SESSION["fecha_nacimiento"];
 $genero = $_SESSION["genero"];
@@ -24,7 +21,7 @@ $carrera = $_SESSION["carrera"];
 $cve_especialidad = $_SESSION["cve_especialidad"];
 $especialidad = $_SESSION["especialidad"];
 $estatus = $_SESSION["estatus"];
-$semestre = $_SESSION["semestre"];
+$semestre = $_SESSION["semestre"]; */
 ?>
 
 <!DOCTYPE html>
@@ -62,8 +59,8 @@ $semestre = $_SESSION["semestre"];
                         <figure>
                             <i class="fa-solid fa-user"></i>
                         </figure>
-                        <p>Nombre: <?php echo "$nombre "?> </p>
-                        <p>numero de control: <?php echo "$numero_control"?> </p>
+                        <p>Nombre: <?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido_paterno'] . " " . $_SESSION['apellido_materno'];  ?> </p>
+                        <p>numero de control: <?php ?> </p>
                         
                     </section>
                 </article>

@@ -105,3 +105,5 @@ formularioFlotante.addEventListener('click', () => {
 cerrarForm.addEventListener('click', () => {
     formularioPhp.style.display = 'none';
 });
+
+

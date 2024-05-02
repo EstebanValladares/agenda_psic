@@ -94,8 +94,8 @@ if (empty($_SESSION["id"])){
                     <h1 class="titulo_cita">Registrar cita</h1>
                         <div id="mensaje" ></div> 
                             <form id="formulario" class="flex flex-col gap-4 w-full">
-                                <input type="text" name="nombre" placeholder="Nombre" class="">
-                                <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
+                                <input type="text" name="nombre" placeholder="Nombre" class="inputs-cita">
+                                <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="inputs-cita">
                                 <select name="semestre" id="semestre" class="selectec_sem">
                                     <option value="">semestre</option>
                                         <?php
@@ -123,4 +123,5 @@ if (empty($_SESSION["id"])){
 </body>
     <script src="../../js/app.js"></script>
     <script src="../../js/script.js"></script>
+    <script src="../../js/logoutTimer.js"></script>
 </html>

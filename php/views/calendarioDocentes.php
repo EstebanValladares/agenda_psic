@@ -14,11 +14,10 @@ if (empty($_SESSION["id"])){
 
 <head>
 <meta charset="UTF-8">
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- hojas de estilos de css -->
-<link rel="stylesheet" href="../style/styleOptions.css">
-<link rel="stylesheet" href="../src/estilos.css">
+<link rel="stylesheet" href="../../style/styleOptions.css">
+<link rel="stylesheet" href="../../src/estilos.css">
 <!-- link de tailwind -->
 <link href="../src/output.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
@@ -29,7 +28,8 @@ if (empty($_SESSION["id"])){
 <!-- fontawesome en diferentes cuentas  -->
 <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/7f04a31559.js" crossorigin="anonymous"></script>
-    <title>Calendario</title>
+<!-- titulo del poryecto -->
+<title>Calendario</title>
 </head>
 
 <body>
@@ -93,8 +93,8 @@ if (empty($_SESSION["id"])){
         <h1 class="titulo_cita">Registrar cita</h1>
         <div id="mensaje" ></div> 
         <form id="formulario" class="flex flex-col gap-4 w-full">
-            <input type="text" name="nombre" placeholder="Nombre" class="p-2 mt-8 border-b-2 focus:outline-none focus:border-blue-400">
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
+        <input type="text" name="nombre" placeholder="Nombre" class="inputs-cita">
+                                <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="inputs-cita">
             <select name="semestre" id="semestre" class="selectec_sem">
                 <option value="">semestre</option>
                 <?php
@@ -148,4 +148,7 @@ if (empty($_SESSION["id"])){
         xhr.send(formData); // Envía los datos del formulario al controlador
     });
 </script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="../../js/logoutTimer.js"></script>
 </html>

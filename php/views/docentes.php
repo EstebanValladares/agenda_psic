@@ -72,5 +72,5 @@ $academia = $_SESSION["academia"];
         </article>
     </main>
 </body>
-<script src="../js/app.js"></script>
+<script src="../../js/logoutTimer.js"></script>
 </html>

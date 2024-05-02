@@ -71,7 +71,6 @@ $semestre = $_SESSION["semestre"]; */
                         <p>Nacionalidadl: <?php echo $_SESSION['nacionalidad'] ?> </p>
                         <p>Telefono: <?php echo $_SESSION['telefono'] ?> </p>
                         <p>Correo electrónico: <?php echo $_SESSION['correo_electronico'] ?> </p>
-                        
                     </section>
                 </article>
                 <article class="container-article2">
@@ -99,5 +98,5 @@ $semestre = $_SESSION["semestre"]; */
         </article>
     </main>
 </body>
-<script src="../js/app.js"></script>
+<script src="../../js/logoutTimer.js"></script>
 </html>

@@ -321,7 +321,15 @@ h2 {
         }
     }
 }
-/* Formulario flotante docentes */
+/* Formulario flotante docentes y estudiantes */
+.inputs-cita{
+    width: 100%;
+    border: 1px solid #dddddd;
+    background-color: var(--colorBlancoLigero);
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
 .formularioDoc{
     border-radius: 10px;
 }
@@ -382,6 +390,9 @@ h2 {
     background-color: var(--colorAzul);
     padding: 10px;
 }
+
+/* mensaje flotante contraseña */
+
 .alertaContraseña{
     color: var(--colorBlanco);
     background-color: var(--colorRojo);

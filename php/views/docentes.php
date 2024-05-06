@@ -36,13 +36,14 @@ $academia = $_SESSION["academia"];
 <body>
     <main>
         <article class="articleAll">
-            <section class="section-nav">
+        <section class="section-nav">
             <div class="div1">
-                    <a href="docentes.php"><i class="fa-solid fa-user iconUser"></i></a>
-                    <a href="calendarioDocentes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
-                </div>
-                <div class="div2">
-                    <a href="#"><i class="fa-solid fa-gear"></i></a>
+                    <picture class="logotec">
+                        <img src="../../img/logotec.jpg" alt="">
+                    </picture>
+                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
+                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
+                    <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
                 </div>
             </section>
             <section class="section-container">

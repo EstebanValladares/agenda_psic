@@ -11,6 +11,7 @@
     --colorRojo: #e53a3a;
     --colorVerde: #8DDF80;
     --colorAzul: #3399c9;
+    --colorAzulFuerte: #2b7ca1;
     --colorBlack: #000;
 }
 
@@ -35,26 +36,31 @@ body {
                 & .div1 {
                     display: flex;
                     flex-direction: column;
-
-                    & i {
-                        font-size: 2.5rem;
-                        margin-top: 5vh;
-                        padding: 20px;
-                        background-color: var(--colorAzul);
-                        border-radius: 10px;
-                        color: var(--colorBlanco);
+                    & .logotec{
+                        width: 100%;
+                        text-align: center;
+                        margin: 10% 0;
+                        & img{
+                            max-width: 70%;
+                        }
                     }
-                }
-
-                & .div2 {
-
-                    & i {
-                        font-size: 2.5rem;
-                        margin-bottom: 5vh;
-                        padding: 20px;
+                    & a{
+                        text-decoration: none;
+                        color: var(--colorBlack);
+                        padding: 10px;
+                        width: 100%;
+                        text-align: center;
+                        font-size: 1.2rem;
+                        transition: 0.5s;
+                        color: var(--colorAzulFuerte);
+                        & i{
+                            margin-right: 10px;
+                        }
+                    }
+                    a:hover{
                         background-color: var(--colorAzul);
-                        border-radius: 10px;
                         color: var(--colorBlanco);
+                        transition: 0.5s;
                     }
                 }
             }
@@ -218,17 +224,6 @@ h2 {
     color: #ccc;
 }
 
-.new_date {
-    width: 50%;
-    border: none;
-    padding: 10px;
-    background-color: var(--colorAzul);
-    color: var(--colorBlanco);
-    border-radius: 10px;
-    cursor: pointer;
-
-}
-
 .datesCits {
     width: 25vw;
     height: 80vh;
@@ -321,17 +316,29 @@ h2 {
         }
     }
 }
-/* Formulario flotante docentes y estudiantes */
+/* NUevo registro de formulario */
+.nuevFormulario{
+    padding: 5%;
+}
+.nuevFormulario > *{
+    margin: 10px 0;
+    
+}
 .inputs-cita{
     width: 100%;
     border: 1px solid #dddddd;
     background-color: var(--colorBlancoLigero);
     border-radius: 10px;
-    font-size: 1rem;
+    padding: 15px;
 }
-
-.formularioDoc{
+.bton-envio{
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    padding: 10px;
+    border: none;
     border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
 }
 .titulo_cita{
     font-size: 1.7rem;

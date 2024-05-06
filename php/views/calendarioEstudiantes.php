@@ -15,34 +15,27 @@ if (empty($_SESSION["id"])){
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- hojas de estilos de css -->
-<link rel="stylesheet" href="../../style/styleOptions.css">
-<link rel="stylesheet" href="../../src/estilos.css">
-<!-- link de tailwind -->
-<link href="../src/output.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-<!-- fonts determinadas para el proyecto -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<!-- fontawesome en diferentes cuentas  -->
-<script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/7f04a31559.js" crossorigin="anonymous"></script>
-<!-- titulo del poryecto -->
-<title>Calendario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../style/styleOptions.css">
+    <link href="../login-tec/src/estilos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 
 <body>
     <main>
         <article class="articleAll">
-            <section class="section-nav">
-                <div class="div1">
-                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i></a>
-                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i></a>
-                </div>
-                <div class="div2">
-                    <a href=""><i class="fa-solid fa-gear"></i></a>
+        <section class="section-nav">
+            <div class="div1">
+                    <picture class="logotec">
+                        <img src="../../img/logotec.jpg" alt="">
+                    </picture>
+                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
+                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
+                    <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
                 </div>
             </section>
             <section class="section-container">
@@ -75,25 +68,11 @@ if (empty($_SESSION["id"])){
                         <div class="days">
                         </div>
                     </div>
-                    <button class="new_date">Nueva cita</button>
                 </div>
                 <div class="datesCits">
                     <article class="list">
-                        <h3>Historial</h3>
-                        <p></p>
-                        <p>holaa </p>
-                    </article>
-                </div>
-            </section>
-        </article>
-        <article class="formulario">
-            <button class="cerrar"><i class="fa-solid fa-x"></i></button>
-                
-            <section>
-                <div class="bg-white flex flex-col items-center p-10 formularioDoc">
-                    <h1 class="titulo_cita">Registrar cita</h1>
-                        <div id="mensaje" ></div> 
-                            <form id="formulario" class="flex flex-col gap-4 w-full">
+                        <h3>Nueva cita</h3>
+                        <form id="formulario" class="flex flex-col gap-4 w-full nuevFormulario">
                                 <input type="text" name="nombre" placeholder="Nombre" class="inputs-cita">
                                 <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="inputs-cita">
                                 <select name="semestre" id="semestre" class="selectec_sem">
@@ -113,10 +92,11 @@ if (empty($_SESSION["id"])){
                                         }
                                         ?>
                                 </select>
-                                <input type="date" name="fecha" class="p-2 border-b-2 focus:outline-none focus:border-blue-400">
-                                <button type="submit" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md">Registrar</button>
+                                <input type="date" name="fecha" class="inputs-cita">
+                                <button type="submit" class="bton-envio">Registrar</button>
                             </form>
-                        </div>
+                    </article>
+                </div>
             </section>
         </article>
     </main>

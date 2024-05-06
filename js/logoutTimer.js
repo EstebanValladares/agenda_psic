@@ -1,4 +1,4 @@
-const tiempoInactividad = 3 * 60 * 1000; 
+const tiempoInactividad = 3 * 60 * 10000; 
 let tiempoInactivo;
 
 function redireccionar() {

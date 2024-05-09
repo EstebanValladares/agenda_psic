@@ -26,4 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 mysqli_close($conexion);
 
+if (isset($_POST['nombre'], $_POST['apellido'], $_POST['semestre'], $_POST['carrera'], $_POST['hora'], $_POST['fecha'])) {
+  echo "Los datos se han enviado correctamente";
+} else {
+  echo "Los datos no se han enviado correctamente";
+}
+
 ?>

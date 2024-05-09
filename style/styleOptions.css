@@ -417,3 +417,16 @@ h2 {
 .alertaContraseña{
     animation: blink 2s infinite;
 }
+
+/* Estilos vidta psicologa */
+.container-all{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-all .solicitudes{
+    width: 80vw;
+    height: 80vh;
+    background-color: var(--colorBlanco);
+}

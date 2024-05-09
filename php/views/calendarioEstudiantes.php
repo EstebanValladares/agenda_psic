@@ -72,7 +72,7 @@ if (empty($_SESSION["id"])){
                 <div class="datesCits">
                     <article class="list">
                         <h3>Nueva cita</h3>
-                        <form id="formulario" class="flex flex-col gap-4 w-full nuevFormulario">
+                        <form id="formulario" class="flex flex-col gap-4 w-full nuevFormulario" action="controlador_agendar.php" method="post">
                                 <input type="text" name="nombre" placeholder="Nombre" class="inputs-cita">
                                 <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="inputs-cita">
                                 <select name="semestre" id="semestre" class="selectec_sem">
@@ -92,6 +92,8 @@ if (empty($_SESSION["id"])){
                                         }
                                         ?>
                                 </select>
+                                <label for="hora">Hora (HH:MM):</label>
+                                <input type="time" name="hora" class="inputs-cita" placeholder="HH:MM">
                                 <input type="date" name="fecha" class="inputs-cita">
                                 <button type="submit" class="bton-envio">Registrar</button>
                             </form>
@@ -101,6 +103,7 @@ if (empty($_SESSION["id"])){
         </article>
     </main>
 </body>
+    <script src="../../js/datosCitasEst.js"></script>
     <script src="../../js/app.js"></script>
     <script src="../../js/script.js"></script>
     <script src="../../js/logoutTimer.js"></script>

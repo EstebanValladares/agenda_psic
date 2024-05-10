@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7f04a31559.js" crossorigin="anonymous"></script>
+    <title>Iniciar Sesion</title>
 </head>
 
 <body>
@@ -38,22 +39,22 @@
                 $current_page = basename($_SERVER['PHP_SELF']);
                 ?>
                 <div class="options">
-                    <button class="<?php echo $current_page == 'index.php' ? 'selected' : ''; ?>"><a href="index.php">Estudiantes</a></button>
-                    <button><a href="indexDocentes.php">Docentes</a></button>
-                    <button><a href="">Psicologa</a></button>
+                    <button type="submit" class="<?php echo $current_page == 'index.php' ? 'selected' : ''; ?>"><a href="index.php">Estudiantes</a></button>
+                    <button type="submit"><a href="indexDocentes.php">Docentes</a></button>
+                    <button type="submit"><a href="indexPsicologos.php">Psicologa</a></button>
                 </div>
                 <form method="post" action="" class="flex flex-col gap-4">
                     <input class="p-2 mt-8 border-b-2 focus:outline-none focus:border-blue-400 " type="text" name="usuario" placeholder="No. de control" id="usuario">
                     <div class="relative">
                     <input class="p-2 border-b-2 w-full focus:outline-none focus:border-blue-400 " type="password" name="password" placeholder="Contraseña" id="password">
-                    <i class="fa-regular fa-eye absolute top-1/3 right-3 -translate-y-1/2"></i>
+                    <i class="fa-regular fa-eye absolute top-1/3 right-3 -translate-y-1/2 cursor-pointer"></i>
                     </div>      
                     <div class="grid grid-cols-2 mt-8">
                         <div>
                             <a href="#" class="text-base" style=" color:#053B5E">¿Olvidaste tu contraseña?</a>
                         </div>
                         <div>
-                            <input name="btningresar" type="submit" value="Login →" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md " ></input>
+                            <input name="btningresoestudiantes" type="submit" value="Login →" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md cursor-pointer " ></input>
                         </div>
                         
                     </div>   

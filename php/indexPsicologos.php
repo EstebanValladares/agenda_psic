@@ -42,8 +42,8 @@
                 ?>
                 <div class="options">
                     <button><a href="index.php">Estudiantes</a></button>
-                    <button class="<?php echo $current_page == 'indexDocentes.php' ? 'selected' : ''; ?>"><a href="indexDocentes.php">Docentes</a></button>
-                    <button><a href="indexPsicologos.php">Psicologa</a></button>
+                    <button><a href="indexDocentes.php">Docentes</a></button>
+                    <button class="<?php echo $current_page == 'indexPsicologos.php' ? 'selected' : ''; ?>"><a href="indexPsicologos.php">Psicologa</a></button>
                 </div>
                 <form method="post" action="" class="flex flex-col gap-4">
                     <input class="p-2 mt-8 border-b-2 focus:outline-none focus:border-blue-400 " type="text" name="tarjeta" placeholder="No. de tarjeta" id="tarjeta">
@@ -56,7 +56,7 @@
                             <a href="#" class="text-base" style=" color:#053B5E">¿Olvidaste tu contraseña?</a>
                         </div>
                         <div>
-                            <input name="btningresodocentes" type="submit" value="Login →" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md cursor-pointer " ></input>
+                            <input name="btningresopsicologo" type="submit" value="Login →" style="background-color: #1C92E1;" class="rounded-2xl text-base text-white py-2 px-6 shadow-md cursor-pointer " ></input>
                         </div>
                         
                     </div>   

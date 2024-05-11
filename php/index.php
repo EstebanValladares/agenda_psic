@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="../src/output.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../login-tec/src/output.css" rel="stylesheet">
-    <link href="../login-tec/src/estilos.css" rel="stylesheet">
+<!-- hojas de estilos de css -->
+    <link rel="stylesheet" href="../style/styleOptions.css">
     <link rel="stylesheet" href="../src/estilos.css">
+<!-- link de tailwind -->
+    <link href="../src/output.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+<!-- fonts determinadas para el proyecto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- fontawesome en diferentes cuentas  -->
+    <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f04a31559.js" crossorigin="anonymous"></script>
     <title>Iniciar Sesion</title>
 </head>

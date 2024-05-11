@@ -3,25 +3,6 @@ session_start();
 if (empty($_SESSION["id"])){
     header("location: index.php");
 }
-/*
-$curp = $_SESSION["curp"];
-$fecha_nacimiento = $_SESSION["fecha_nacimiento"];
-$genero = $_SESSION["genero"];
-$estado_civil = $_SESSION["estado_civil"];
-$nacionalidad = $_SESSION["nacionalidad"];
-$telefono = $_SESSION["telefono"];
-$correo_electronico = $_SESSION["correo_electronico"];
-$calle_numero = $_SESSION["calle_numero"];
-$colonia = $_SESSION["colonia"];
-$estado = $_SESSION["estado"];
-$municipio = $_SESSION["municipio"];
-$unidad_medica = $_SESSION["unidad_medica"];
-$cve_reticula = $_SESSION["cve_reticula"];
-$carrera = $_SESSION["carrera"];
-$cve_especialidad = $_SESSION["cve_especialidad"];
-$especialidad = $_SESSION["especialidad"];
-$estatus = $_SESSION["estatus"];
-$semestre = $_SESSION["semestre"]; */
 ?>
 <?php 
     if($_SESSION['password'] === 'tecvalles'){
@@ -93,6 +74,9 @@ $semestre = $_SESSION["semestre"]; */
                         <p>Estado: <?php echo $_SESSION['estado'] ?> </p>
                         <p>Podigo postal: <?php echo $_SESSION['codigo_postal'] ?> </p>
                         </section>
+                    </section>
+                    <section class="">
+                    <a href="editar.php"><p class="">Editar informacion</p></a>
                     </section>
                 </article>
             </section>

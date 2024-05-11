@@ -419,14 +419,62 @@ h2 {
 }
 
 /* Estilos vidta psicologa */
-.container-all{
-    width: 100vw;
+.section-container2{
+    width: 85vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.container-input{
+    width: 70vw;
+    background-color: var(--colorBlanco);
+    margin: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-.container-all .solicitudes{
-    width: 80vw;
-    height: 80vh;
-    background-color: var(--colorBlanco);
+
+.table-citas{
+    display: table;
+    width: 100%; 
+}
+
+.table-citas th {
+    color: var(--colorAzulFuerte);
+    margin: 0.5rem; 
+    text-align: center;
+}
+.table-citas td{
+    margin: 0.5rem; 
+    text-align: center;
+    padding: 5px 0;
+}
+.envio-date{
+    display: flex;
+}
+.search {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.search:focus {
+    border-color: var(--colorAzul);
+    outline: none;
+}
+.bton-search{
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 15%;
 }

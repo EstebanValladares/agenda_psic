@@ -1,32 +1,10 @@
 <?php
+include '../controllers/conexion_bd.php';
 session_start();
 if (empty($_SESSION["id"])){
     header("location: index.php");
 }
-/*
-$curp = $_SESSION["curp"];
-$fecha_nacimiento = $_SESSION["fecha_nacimiento"];
-$genero = $_SESSION["genero"];
-$estado_civil = $_SESSION["estado_civil"];
-$nacionalidad = $_SESSION["nacionalidad"];
-$telefono = $_SESSION["telefono"];
-$correo_electronico = $_SESSION["correo_electronico"];
-$calle_numero = $_SESSION["calle_numero"];
-$colonia = $_SESSION["colonia"];
-$estado = $_SESSION["estado"];
-$municipio = $_SESSION["municipio"];
-$unidad_medica = $_SESSION["unidad_medica"];
-$cve_reticula = $_SESSION["cve_reticula"];
-$carrera = $_SESSION["carrera"];
-$cve_especialidad = $_SESSION["cve_especialidad"];
-$especialidad = $_SESSION["especialidad"];
-$estatus = $_SESSION["estatus"];
-$semestre = $_SESSION["semestre"]; */
-?>
-<?php 
-    if($_SESSION['password'] === 'tecvalles'){
-        echo "<p class='alertaContraseña'>Cambiar la contraseña al nip institucional</p>";
-    }
+;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,18 +25,60 @@ $semestre = $_SESSION["semestre"]; */
     <main>
         <article class="articleAll">
             <section class="section-nav">
-            <div class="div1">
+                <div class="div1">
                     <picture class="logotec">
                         <img src="../../img/logotec.jpg" alt="">
                     </picture>
-                    <a href=""><i class="fa-solid fa-envelope iconUser"></i>Solicitudes</a>
-                    <a href="p"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
-                    <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
+                    <a href="../../php/views/psicologa.php"><i class="fa-solid fa-envelope iconUser"></i>Solicitudes</a>
                 </div>
             </section>
-            <section class="container-all">
-                <article class="solicitudes">
-
+            <section class="section-container2">
+                <h3>Solicitudes</h3>
+                <form method="post" class="envio-date">
+                    <input type="text" name="search" placeholder="Buscar por nombre o apellido" class="search">
+                    <input type="submit" name="submit" value="Buscar" class="bton-search">
+                </form>
+                <article class="container-input">
+                <?php
+                    $searchResult = '';
+                    if (isset($_POST['submit'])) {
+                        $search = $_POST['search'];
+                        $sqlSearch = "SELECT * FROM citasprueba WHERE nombre LIKE ? OR apellido LIKE ?";
+                        $stmt = $conexion->prepare($sqlSearch);
+                        $param = "%{$search}%";
+                        $stmt->bind_param("ss", $param, $param);
+                        $stmt->execute();
+                        $resultSearch = $stmt->get_result();
+                    
+                        if ($resultSearch->num_rows > 0) {
+                            $searchResult .= "<table class='table-citas'>";
+                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Fecha</th><th>Hora</th></tr>";
+                            while ($row = $resultSearch->fetch_assoc()) {
+                                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
+                            }
+                            $searchResult .= "</table>";
+                        } else {
+                            $searchResult = "No se encontraron resultados";
+                        }
+                    } else {
+                        $sql = "SELECT * FROM citasprueba";
+                        $result = $conexion->query($sql);
+                    
+                        if ($result->num_rows > 0) {
+                            $searchResult .= "<table class='table-citas'>";
+                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Fecha</th><th>Hora</th></tr>";
+                            while ($row = $result->fetch_assoc()) {
+                                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
+                            }
+                            $searchResult .= "</table>";
+                        } else {
+                            $searchResult = "0 resultados";
+                        }
+                    }
+                    
+                    $conexion->close();
+                    echo $searchResult;
+                ?>
                 </article>
             </section>
         </article>

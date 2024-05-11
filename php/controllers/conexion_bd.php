@@ -4,12 +4,7 @@ $username = "root";
 $password = "hola123";
 $dbname = "prueba";
 
-try {
-    $conexion = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conexion->exec("set names utf8");
-    echo "Conexión exitosa";
-} catch(PDOException $e) {
-    echo "Error en la conexión: " . $e->getMessage();
-}
+$conexion = new mysqli($servername, $username, $password, $dbname);
+$conexion -> set_charset("utf8")
+or die("Error en la conexión: " . mysqli_connect_error());
 ?>

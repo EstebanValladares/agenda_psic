@@ -6,15 +6,12 @@ window.addEventListener('DOMContentLoaded',(event)=>{
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) { 
                 if (xhr.status == 200) { 
-                    document.getElementById('mensaje').innerHTML = xhr.responseText; 
                     document.getElementById('semestre').value = '';
                     document.getElementById('carrera').value = '';
                     document.querySelector('input[type="date"]').value = '';
                     document.querySelector('input[name="nombre"]').value = '';
                     document.querySelector('input[name="apellido"]').value = '';
                     document.querySelector('input[name="hora"]').value = '';
-                } else {
-                    document.getElementById('mensaje').innerHTML = "Error al procesar la solicitud."; 
                 }
             }
         };

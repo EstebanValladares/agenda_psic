@@ -1,15 +1,57 @@
 <?php
-/* include 'conexion.php';
+session_start();
+if (empty($_SESSION["id"])){
+    header("location: index.php");
+}
+?>
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!empty($_POST["nombre"]) && !empty($_POST["apellido_paterno"]) && !empty($_POST["apellido_materno"]) && !empty($_POST["curp"]) && !empty($_POST["fecha_nacimiento"]) && !empty($_POST["genero"]) && !empty($_POST["estado_civil"]) && !empty($_POST["nacionalidad"]) && !empty($_POST["correo_electronico"]) && !empty($_POST["numero_control"]) && !empty($_POST["semestre"]) && !empty($_POST["carrera"]) && !empty($_POST["especialidad"])) {
-        $nombre = $_POST["nombre"];
-        $apellido_paterno = $_POST["apellido_paterno"];
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-        try {
-            $sql = "INSERT INTO estudiantes (nombre, apellido_paterno, apellido_materno, curp, fecha_nacimiento, genero, estado_civil, nacionalidad, correo_electronico, numero_control, semestre, carrera, especialidad) VALUES (:nombre, :apellido_paterno, :apellido_materno, :curp, :fecha_nacimiento, :genero, :estado_civil, :nacionalidad, :correo_electronico, :numero_control, :semestre, :carrera, :especialidad) ";
-            $stmt->bindParam()
-        }
-    }
-} */
+include("../controllers/conexion_bd.php");
+
+if (!empty($_POST["btnmodificardatos"])){
+
+    if (!empty($_POST["nombre"]) && !empty($_POST["apellido_paterno"]) && !empty($_POST["apellido_materno"]) && !empty($_POST["curp"]) && !empty($_POST["fecha_nacimiento"]) && !empty($_POST["genero"]) && !empty($_POST["estado_civil"]) && !empty($_POST["nacionalidad"]) && !empty($_POST["correo_electronico"]) && !empty($_POST["numero_control"]) && !empty($_POST["semestre"]) && !empty($_POST["carrera"]) && !empty($_POST["especialidad"]) && !empty($_POST["calle_numero"]) && !empty($_POST["colonia"]) && !empty($_POST["municipio"]) && !empty($_POST["estado"]) && !empty($_POST["codigo_postal"])) {
+    
+    $userId = $_SESSION["id"];
+            
+    $nombre = $_POST["nombre"];
+    $apellido_paterno = $_POST["apellido_paterno"];
+    $apellido_materno = $_POST["apellido_materno"];
+    $curp = $_POST["curp"];
+    $fecha_nacimiento = $_POST["fecha_nacimiento"];
+    $genero = $_POST["genero"];
+    $estado_civil = $_POST["estado_civil"];
+    $nacionalidad = $_POST["nacionalidad"];
+    $correo_electronico = $_POST["correo_electronico"];
+    $numero_control = $_POST["numero_control"];
+    $semestre = $_POST["semestre"];
+    $carrera = $_POST["carrera"];
+    $especialidad = $_POST["especialidad"];
+    $calle_numero = $_POST["calle_numero"];
+    $colonia = $_POST["colonia"];
+    $municipio = $_POST["municipio"];
+    $estado = $_POST["estado"];
+    $codigo_postal = $_POST["codigo_postal"];
+
+    $escapedColonia = mysqli_real_escape_string($conexion, $colonia); // Escapa el valor de colonia
+
+    $consulta = $conexion->prepare("UPDATE estudiantes SET numero_control = ?, nombre = ?, apellido_paterno = ?, apellido_materno = ?, curp = ?, fecha_nacimiento = ?, genero = ?, estado_civil = ?, nacionalidad = ?, correo_electronico = ?, calle_numero = ?, colonia = ?, estado = ?, municipio = ?, codigo_postal = ?, carrera = ?, especialidad = ?, semestre = ? WHERE id_estudiante = ?");
+    
+    $consulta->bind_param("ssssssssssssssssssi", $numero_control, $nombre, $apellido_paterno, $apellido_materno, $curp, $fecha_nacimiento, $genero, $estado_civil, $nacionalidad, $correo_electronico, $calle_numero, $escapedColonia, $estado, $municipio, $codigo_postal, $carrera, $especialidad, $semestre, $userId);
+    
+        $consulta->execute();
+        if ($consulta->execute()){
+            echo '<div class="bg-green-200 w-full border-2 border-green-400 rounded-sm text-gray-500 mt-5 p-1" >Se guardaron los cambios</div>';;
+        } else {
+            echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1" >Error al guardar los cambios</div>' . $consulta->error;
+        } 
+    } else {
+        echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1" >Completa todos los campos</div>';
+    } 
+}
+
+$conexion->close();
 ?>

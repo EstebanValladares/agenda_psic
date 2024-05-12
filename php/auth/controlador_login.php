@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "../php/controllers/conexion_bd.php";
 /* Estudiantes */
 if (!empty($_POST["btningresoestudiantes"])){
     if (!empty($_POST["usuario"]) and !empty($_POST["password"])) {

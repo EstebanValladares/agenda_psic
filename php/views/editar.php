@@ -18,7 +18,7 @@ $datos_estudiante = array(
     "semestre" => $_SESSION['semestre'],
     "carrera" => $_SESSION['carrera'],
     "especialidad" => $_SESSION['especialidad'],
-    "calle" => $_SESSION['calle_numero'],
+    "calle_numero" => $_SESSION['calle_numero'],
     "colonia" => $_SESSION['colonia'],
     "municipio" => $_SESSION['municipio'],
     "estado" => $_SESSION['estado'],
@@ -58,11 +58,12 @@ $datos_estudiante = array(
             </section>
             <section class="section-container">
                 <a href="/php/auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
-                <form action="procesar_datos.php" method="POST">
+                <?php include "../controllers/procesar_datos.php"; ?>
+                <form action="" method="post">
                 <article class="general">
                     <h2 class="cards">Información general</h2>
                     <section class="info">
-                        <!-- <div class=" flex flex-col"> -->
+                        <div class=" flex flex-col">
                         <?php 
                             $campos_generales = array(
                                 "nombre" => "Nombre",
@@ -73,45 +74,26 @@ $datos_estudiante = array(
                                 "genero" => "Género",
                                 "estado_civil" => "Estado Civil",
                                 "nacionalidad" => "Nacionalidad",
-                                "correo_electronico" => "Correo Electrónico"
+                                "correo_electronico" => "Correo Electrónico",
+                                "numero_control" => "Numero de control",
+                                "semestre" => "Semestre",
+                                "carrera" => "Carrera",
+                                "especialidad" => "Especialidad",
+                                "calle_numero" => "Calle",
+                                "colonia" => "Colonia",
+                                "municipio" => "Municipio",
+                                "estado" => "Estado",
+                                "codigo_postal" => "Codigo Postal"
                             );
                         ?>
                         <?php foreach($campos_generales as $clave => $titulo): ?>
                             <label for="<?php echo $clave; ?>"><?php echo $titulo; ?></label>
-                            <input type="text" name="<?php echo $clave; ?>" id="<?php echo $clave; ?>" value="<?php echo $datos_estudiante[$clave]; ?>">
+                            <input type="text" name="<?php echo $clave; ?>" id="<?php echo $clave; ?>" value="<?php echo $datos_estudiante[$clave]; ?>" class=" border border-gray-400 rounded-md">
                         <?php endforeach; ?>
-                        <!-- </div> -->
+                        </div>
                     </section>
                 </article>
-                <article class="container-article2">
-                <?php $informacion_escolar = array_slice($datos_estudiante, 9, 4, true); ?>
-                <?php $informacion_contacto = array_slice($datos_estudiante, 13, 5, true); ?>              
-                    <section class="school">
-                        <h2 class="cards">Información escolar</h2>
-                        <section class="info">
-                            <div class=" flex flex-col">
-                            <?php foreach($informacion_escolar as $clave => $valor): ?>
-                                <label for="<?php echo $clave; ?>"><?php echo ucwords(str_replace("_", " ", $clave)); ?></label>
-                                <input type="text" name="<?php echo $clave; ?>" id="<?php echo $clave; ?>" value="<?php echo $valor; ?>">
-                            <?php endforeach; ?>
-                            </div>            
-                        </section>
-                    </section>
-                    <section class="contact">
-                        <h2 class="cards">Información de contacto</h2>
-                        <section class="info">
-                            <div class=" flex flex-col">
-                            <?php foreach($informacion_contacto as $clave => $valor): ?>
-                                <label for="<?php echo $clave; ?>"><?php echo ucwords(str_replace("_", " ", $clave)); ?></label>
-                                <input type="text" name="<?php echo $clave; ?>" id="<?php echo $clave; ?>" value="<?php echo $valor; ?>">
-                            <?php endforeach; ?>
-                            </div>                        
-                        </section>
-                    </section> 
-                    <section class="">
-                    <a href="#"><p class="">Guardar Cambios</p></a>
-                    </section>
-                </article>
+                <input type="submit" name="btnmodificardatos" value="Guardar Cambios"> 
                 </form>
             </section>
         </article>

@@ -15,8 +15,7 @@ if (!empty($_POST["btnmodificardatos"])){
 
     if (!empty($_POST["nombre"]) && !empty($_POST["apellido_paterno"]) && !empty($_POST["apellido_materno"]) && !empty($_POST["curp"]) && !empty($_POST["fecha_nacimiento"]) && !empty($_POST["genero"]) && !empty($_POST["estado_civil"]) && !empty($_POST["nacionalidad"]) && !empty($_POST["correo_electronico"]) && !empty($_POST["numero_control"]) && !empty($_POST["semestre"]) && !empty($_POST["carrera"]) && !empty($_POST["especialidad"]) && !empty($_POST["calle_numero"]) && !empty($_POST["colonia"]) && !empty($_POST["municipio"]) && !empty($_POST["estado"]) && !empty($_POST["codigo_postal"])) {
     
-    $userId = $_SESSION["id"];
-            
+    $userId = $_SESSION["id"];           
     $nombre = $_POST["nombre"];
     $apellido_paterno = $_POST["apellido_paterno"];
     $apellido_materno = $_POST["apellido_materno"];
@@ -43,15 +42,46 @@ if (!empty($_POST["btnmodificardatos"])){
     $consulta->bind_param("ssssssssssssssssssi", $numero_control, $nombre, $apellido_paterno, $apellido_materno, $curp, $fecha_nacimiento, $genero, $estado_civil, $nacionalidad, $correo_electronico, $calle_numero, $escapedColonia, $estado, $municipio, $codigo_postal, $carrera, $especialidad, $semestre, $userId);
     
         $consulta->execute();
-        if ($consulta->execute()){
-            echo '<div class="bg-green-200 w-full border-2 border-green-400 rounded-sm text-gray-500 mt-5 p-1" >Se guardaron los cambios</div>';;
-        } else {
+        if ($consulta->affected_rows >= 0){
+            //actualiza los datos de la sesion
+            $_SESSION['nombre'] = $nombre;
+            $_SESSION['apellido_paterno']  =  $apellido_paterno;
+            $_SESSION['apellido_materno']  = $apellido_materno;
+            $_SESSION['curp']  = $curp;
+            $_SESSION['fecha_nacimiento']  = $fecha_nacimiento;
+            $_SESSION['genero']  = $genero;
+            $_SESSION['estado_civil']  =  $estado_civil;
+            $_SESSION['nacionalidad']  = $nacionalidad;
+            $_SESSION['correo_electronico']  = $correo_electronico;
+            $_SESSION['numero_control']  = $numero_control;
+            $_SESSION['semestre']  = $semestre;
+            $_SESSION['carrera']  = $carrera;
+            $_SESSION['especialidad']  = $especialidad;
+            $_SESSION['calle_numero']  = $calle_numero;
+            $_SESSION['colonia'] = $escapedColonia;
+            $_SESSION['municipio']  = $municipio;
+            $_SESSION['estado']  = $estado;
+            $_SESSION['codigo_postal'] = $codigo_postal;
+
+            echo '<script src="../../js/updateInfoEst.js"></script>'; 
+            echo '<script>
+            // Mostrar mensaje de éxito
+            alert("Los datos se han actualizado correctamente.");       
+            // Redirigir a la misma página después del mensaje
+            setTimeout(function() {
+                window.location.href = window.location.pathname;
+            }, 100); // Tiempo en milisegundos para mostrar el mensaje
+        </script>';
+
+/*             echo '<div class="bg-green-200 w-full border-2 border-green-400 rounded-sm text-gray-500 mt-5 p-1" >Se guardaron los cambios</div>';
+ */        }  else {
             echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1" >Error al guardar los cambios</div>' . $consulta->error;
-        } 
+        }  
     } else {
         echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1" >Completa todos los campos</div>';
-    } 
+    }
 }
-
 $conexion->close();
 ?>
+
+<script src="../../js/updateInfoEst.js"></script>

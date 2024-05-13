@@ -59,7 +59,7 @@ $datos_estudiante = array(
             <section class="section-container">
                 <a href="/php/auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <?php include "../controllers/procesar_datos.php"; ?>
-                <form action="" method="post">
+                <form action="" method="post" id="formularioDatos">
                 <article class="general">
                     <h2 class="cards">Información general</h2>
                     <section class="info">
@@ -75,15 +75,6 @@ $datos_estudiante = array(
                                 "estado_civil" => "Estado Civil",
                                 "nacionalidad" => "Nacionalidad",
                                 "correo_electronico" => "Correo Electrónico",
-                                "numero_control" => "Numero de control",
-                                "semestre" => "Semestre",
-                                "carrera" => "Carrera",
-                                "especialidad" => "Especialidad",
-                                "calle_numero" => "Calle",
-                                "colonia" => "Colonia",
-                                "municipio" => "Municipio",
-                                "estado" => "Estado",
-                                "codigo_postal" => "Codigo Postal"
                             );
                         ?>
                         <?php foreach($campos_generales as $clave => $titulo): ?>
@@ -92,11 +83,52 @@ $datos_estudiante = array(
                         <?php endforeach; ?>
                         </div>
                     </section>
+                    <section class="school">
+                        <h2 class="cards">Información escolar</h2>
+                        <section class="info">
+                        <div class=" flex flex-col">
+                        <?php 
+                            $campos_escolares = array(
+                                "numero_control" => "Numero de control",
+                                "semestre" => "Semestre",
+                                "carrera" => "Carrera",
+                                "especialidad" => "Especialidad"
+                            );
+                        ?>
+                        <?php foreach($campos_escolares as $clave => $titulo): ?>
+                            <label for="<?php echo $clave; ?>"><?php echo $titulo; ?></label>
+                            <input type="text" name="<?php echo $clave; ?>" id="<?php echo $clave; ?>" value="<?php echo $datos_estudiante[$clave]; ?>" class=" border border-gray-400 rounded-md">
+                        <?php endforeach; ?>
+                        </div>
+                        </section>
+                    </section>
+                    <section class="contact">
+                        <h2 class="cards">Información de contacto</h2>
+                        <section class="info">
+                        <div class=" flex flex-col">
+                        <?php 
+                            $campos_contacto = array(
+                                "calle_numero" => "Calle",
+                                "colonia" => "Colonia",
+                                "municipio" => "Municipio",
+                                "estado" => "Estado",
+                                "codigo_postal" => "Codigo Postal"
+                            );
+                        ?>
+                        <?php foreach($campos_contacto as $clave => $titulo): ?>
+                            <label for="<?php echo $clave; ?>"><?php echo $titulo; ?></label>
+                            <input type="text" name="<?php echo $clave; ?>" id="<?php echo $clave; ?>" value="<?php echo $datos_estudiante[$clave]; ?>" class=" border border-gray-400 rounded-md">
+                        <?php endforeach; ?>
+                        </div>
+                        </section>
+                    </section>
                 </article>
-                <input type="submit" name="btnmodificardatos" value="Guardar Cambios"> 
+                <!-- boton de envio -->
+                <input style="position: absolute;" type="submit" name="btnmodificardatos" value="Guardar Cambios" onclick="actualizarDatos()" data-userid="<?php echo $userId; ?>" > 
                 </form>
-            </section>
+            </section>          
         </article>
     </main>
 </body>
 </html>
+<script src="../../js/updateInfoEst.js"></script>

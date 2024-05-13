@@ -29,19 +29,15 @@ $datos_estudiante = array(
 <!DOCTYPE html>
 <html>
 <head> 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../style/styleOptions.css">
-    <link rel="stylesheet" href="../src/estilos.css">
-    <!-- link de tailwind -->
-    <link href="../src/output.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" 
     <link href="../login-tec/src/estilos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Editar Informacion</title>
+    <title>Document</title>
 </head>
 <body>
 <main>
@@ -124,7 +120,7 @@ $datos_estudiante = array(
                     </section>
                 </article>
                 <!-- boton de envio -->
-                <input style="position: absolute;" type="submit" name="btnmodificardatos" value="Guardar Cambios" onclick="actualizarDatos()" data-userid="<?php echo $userId; ?>" > 
+                <input type="submit" name="btnmodificardatos" value="Guardar Cambios" onclick="actualizarDatos()" data-userid="<?php echo $userId; ?>" > 
                 </form>
             </section>          
         </article>

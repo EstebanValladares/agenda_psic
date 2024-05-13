@@ -478,3 +478,14 @@ h2 {
     cursor: pointer;
     margin-left: 15%;
 }
+
+
+/* HOJA DE EDITAR */
+.datos-correctos{
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    background-color: var(--colorRojo);
+    color: var(--colorBlanco);
+    padding: 15px;
+}

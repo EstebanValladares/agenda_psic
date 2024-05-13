@@ -75,10 +75,10 @@ if (!empty($_POST["btnmodificardatos"])){
 
 /*             echo '<div class="bg-green-200 w-full border-2 border-green-400 rounded-sm text-gray-500 mt-5 p-1" >Se guardaron los cambios</div>';
  */        }  else {
-            echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1" >Error al guardar los cambios</div>' . $consulta->error;
+            echo '<div class="datos-correctos" >Error al guardar los cambios</div>' . $consulta->error;
         }  
     } else {
-        echo '<div class="bg-red-200 w-full border-2 border-red-300 rounded-sm text-gray-500 mt-5 p-1" >Completa todos los campos</div>';
+        echo '<div class="datos-correctos" >Completa todos los campos</div>';
     }
 }
 $conexion->close();

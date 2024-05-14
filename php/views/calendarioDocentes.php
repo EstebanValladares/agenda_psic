@@ -92,6 +92,7 @@ if (empty($_SESSION["id"])){
                                         ?>
                                 </select>
                                 <input type="date" name="fecha" class="inputs-cita">
+                                <input type="time" name="hora" class="inputs-cita">
                                 <button type="submit" class="bton-envio">Registrar</button>
                             </form>
                     </article>

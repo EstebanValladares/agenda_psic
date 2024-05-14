@@ -68,8 +68,9 @@ if (empty($_SESSION["id"])){
                             $searchResult .= "<table class='table-citas'>";
                             $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th><th>Editar</th></tr>";
                             while ($row = $result->fetch_assoc()) {
+                                $id = $row["id_cita"];
                                 $searchResult .= sprintf(
-                                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><a href='#' onclick='editRecord(\"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\")' class='edit-horFec'>Editar</a></td></tr>",
+                                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><a href='../../php/views/editor_agenda_psicologa.php?id=%s' class='edit-horFec'>Editar</a></td></tr>",
                                     $row["nombre"],
                                     $row["apellido"],
                                     $row["carrera"],
@@ -77,14 +78,7 @@ if (empty($_SESSION["id"])){
                                     $row["desc_cita"],
                                     $row["fecha"],
                                     $row["hora"],
-                                    $row["id"],
-                                    $row["nombre"],
-                                    $row["apellido"],
-                                    $row["carrera"],
-                                    $row["semestre"],
-                                    $row["desc_cita"],
-                                    $row["fecha"],
-                                    $row["hora"]
+                                    $id
                                 );
                             }
                             $searchResult .= "</table>";
@@ -92,29 +86,11 @@ if (empty($_SESSION["id"])){
                             $searchResult = "0 resultados";
                         }
                     }
-                    
                     $conexion->close();
                     echo $searchResult;
+                    
                 ?>
                 </article>
-            </section>
-            <section>
-            <div id="editModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <form id="editForm" method="post" action="../controllers/editor_agenda_psicologa.php">
-                        <input type="hidden" id="editId" name="id">
-                        <input type="text" id="editNombre" name="nombre" placeholder="Nombre">
-                        <input type="text" id="editApellido" name="apellido" placeholder="Apellido">
-                        <input type="text" id="editCarrera" name="carrera" placeholder="Carrera">
-                        <input type="text" id="editSemestre" name="semestre" placeholder="Semestre">
-                        <input type="text" id="editDescCita" name="desc_cita" placeholder="Descripción de la cita">
-                        <input type="date" id="editFecha" name="fecha">
-                        <input type="time" id="editHora" name="hora">
-                        <input type="submit" name="submit" value="Guardar cambios">
-                    </form>
-                </div>
-            </div>
             </section>
         </article>
     </main>

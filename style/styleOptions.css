@@ -481,7 +481,7 @@ h2 {
 
 
 /* HOJA DE EDITAR */
-.datos-correctos{
+.datos-incorrectos{
     position: absolute;
     right: 2%;
     bottom: 5%;
@@ -489,3 +489,14 @@ h2 {
     color: var(--colorBlanco);
     padding: 15px;
 }
+
+.datos-correctos{
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    padding: 15px;
+}
+
+/* boton de configuracion */

@@ -22,3 +22,5 @@ document.getElementById('formulario').addEventListener('submit', function(event)
     xhr.open("POST", "controlador_agendar.php", true); // Abre una solicitud POST al controlador
     xhr.send(formData); // Envía los datos del formulario al controlador
 });
+
+/* boton cofiguracion */

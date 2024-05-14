@@ -17,7 +17,7 @@ if (empty($_SESSION["id"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../style/styleOptions.css">
-    <link href="../login-tec/src/estilos.css" rel="stylesheet">
+<!--     <link href="../login-tec/src/estilos.css" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -35,6 +35,8 @@ if (empty($_SESSION["id"])){
                     <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
                     <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
                     <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
+                    <a href="cambiarPassword.php">Cambiar contrasena</a>
+                    <a href="/php/auth/cerrar_sesion.php">Cerra Sesion</a>
                 </div>
             </section>
             <section class="section-container">
@@ -84,4 +86,5 @@ if (empty($_SESSION["id"])){
     </main>
 </body>
 <script src="../../js/logoutTimer.js"></script>
+<script src="../../js/script.js"></script>
 </html>

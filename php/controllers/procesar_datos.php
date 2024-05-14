@@ -63,22 +63,19 @@ if (!empty($_POST["btnmodificardatos"])){
             $_SESSION['estado']  = $estado;
             $_SESSION['codigo_postal'] = $codigo_postal;
 
+            //alert de cambios guardados
             echo '<script src="../../js/updateInfoEst.js"></script>'; 
             echo '<script>
-            // Mostrar mensaje de éxito
             alert("Los datos se han actualizado correctamente.");       
-            // Redirigir a la misma página después del mensaje
             setTimeout(function() {
                 window.location.href = window.location.pathname;
-            }, 100); // Tiempo en milisegundos para mostrar el mensaje
-        </script>';
-
-/*             echo '<div class="bg-green-200 w-full border-2 border-green-400 rounded-sm text-gray-500 mt-5 p-1" >Se guardaron los cambios</div>';
- */        }  else {
-            echo '<div class="datos-correctos" >Error al guardar los cambios</div>' . $consulta->error;
+            }, 100);
+            </script>';
+         }  else {
+            echo '<div class="datos-incorrectos" >Error al guardar los cambios</div>' . $consulta->error;
         }  
     } else {
-        echo '<div class="datos-correctos" >Completa todos los campos</div>';
+        echo '<div class="datos-incorrectos" >Completa todos los campos</div>';
     }
 }
 $conexion->close();

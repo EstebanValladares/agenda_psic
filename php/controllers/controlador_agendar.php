@@ -7,11 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apellido = $_POST["apellido"];
     $carrera = $_POST["carrera"];
     $semestre = $_POST["semestre"];
-    $fecha = $_POST["fecha"];
-    $hora = $_POST["hora"];
+    $desc_cita = $_POST["desc_cita"];
 
-    if (!empty($nombre) && !empty($apellido) && !empty($carrera) && !empty($semestre) && !empty($fecha) && !empty($hora)) {
-        $consulta = "INSERT INTO citasprueba (nombre, apellido, carrera, semestre, fecha, hora) VALUES ('$nombre', '$apellido', '$carrera', '$semestre', '$fecha', '$hora')";
+    if (!empty($nombre) && !empty($apellido) && !empty($carrera) && !empty($semestre) && !empty($desc_cita)) {
+        $consulta = "INSERT INTO citasprueba (nombre, apellido, carrera, semestre, desc_cita) VALUES ('$nombre', '$apellido', '$carrera', '$semestre', '$desc_cita')";
         $resultado = mysqli_query($conexion, $consulta);
 
         if ($resultado) {
@@ -26,10 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 mysqli_close($conexion);
 
-if (isset($_POST['nombre'], $_POST['apellido'], $_POST['semestre'], $_POST['carrera'], $_POST['hora'], $_POST['fecha'])) {
+if (isset($_POST['nombre'], $_POST['apellido'], $_POST['semestre'], $_POST['carrera'], $_POST['desc_cita'])) {
   echo "Los datos se han enviado correctamente";
 } else {
   echo "Los datos no se han enviado correctamente";
 }
 
+
 ?>
+
+

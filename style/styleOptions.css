@@ -330,6 +330,11 @@ h2 {
     background-color: var(--colorBlancoLigero);
     border-radius: 10px;
     padding: 15px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+textarea{
+    height: 180px;
 }
 .bton-envio{
     background-color: var(--colorAzul);
@@ -428,7 +433,7 @@ h2 {
 }
 
 .container-input{
-    width: 70vw;
+    width: 80vw;
     background-color: var(--colorBlanco);
     margin: 10px;
     border-radius: 10px;
@@ -439,29 +444,33 @@ h2 {
 .table-citas{
     display: table;
     width: 100%; 
+    table-layout: fixed;
 }
 
 .table-citas th {
     color: var(--colorAzulFuerte);
     margin: 0.5rem; 
-    text-align: center;
+    word-wrap: break-word;
 }
 .table-citas td{
     margin: 0.5rem; 
     text-align: center;
-    padding: 5px 0;
+    padding: 4px 0;
+    word-wrap: break-word;
 }
 .envio-date{
     display: flex;
+    width: 40%;
+    margin-bottom: 2%;
 }
 .search {
     width: 100%;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 2px solid var(--colorBlancoLigero);
     border-radius: 4px;
     font-size: 1rem;
-    background-color: white;
+    background-color: var(--colorBlanco);
     transition: 0.3s;
 }
 
@@ -470,6 +479,7 @@ h2 {
     outline: none;
 }
 .bton-search{
+    width: 40%;
     background-color: var(--colorAzul);
     color: var(--colorBlanco);
     padding: 5px;
@@ -488,4 +498,15 @@ h2 {
     background-color: var(--colorRojo);
     color: var(--colorBlanco);
     padding: 15px;
+}
+.edit-horFec{
+    text-decoration: none;
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+.edit-horFec:hover{
+    background-color: var(--colorAzulFuerte);
+    transition: 0.5s;
 }

@@ -4,7 +4,7 @@ session_start();
 if (empty($_SESSION["id"])){
     header("location: index.php");
 }
-;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@ if (empty($_SESSION["id"])){
                 </div>
             </section>
             <section class="section-container2">
-                <h3>Solicitudes</h3>
+            <h3>Solicitudes</h3>
                 <form method="post" class="envio-date">
                     <input type="text" name="search" placeholder="Buscar por nombre o apellido" class="search">
                     <input type="submit" name="submit" value="Buscar" class="bton-search">
@@ -52,9 +52,9 @@ if (empty($_SESSION["id"])){
                     
                         if ($resultSearch->num_rows > 0) {
                             $searchResult .= "<table class='table-citas'>";
-                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Fecha</th><th>Hora</th></tr>";
+                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
                             while ($row = $resultSearch->fetch_assoc()) {
-                                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
+                                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["desc_cita"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
                             }
                             $searchResult .= "</table>";
                         } else {
@@ -66,9 +66,26 @@ if (empty($_SESSION["id"])){
                     
                         if ($result->num_rows > 0) {
                             $searchResult .= "<table class='table-citas'>";
-                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Fecha</th><th>Hora</th></tr>";
+                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th><th>Editar</th></tr>";
                             while ($row = $result->fetch_assoc()) {
-                                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
+                                $searchResult .= sprintf(
+                                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><a href='#' onclick='editRecord(\"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\")' class='edit-horFec'>Editar</a></td></tr>",
+                                    $row["nombre"],
+                                    $row["apellido"],
+                                    $row["carrera"],
+                                    $row["semestre"],
+                                    $row["desc_cita"],
+                                    $row["fecha"],
+                                    $row["hora"],
+                                    $row["id"],
+                                    $row["nombre"],
+                                    $row["apellido"],
+                                    $row["carrera"],
+                                    $row["semestre"],
+                                    $row["desc_cita"],
+                                    $row["fecha"],
+                                    $row["hora"]
+                                );
                             }
                             $searchResult .= "</table>";
                         } else {
@@ -80,6 +97,24 @@ if (empty($_SESSION["id"])){
                     echo $searchResult;
                 ?>
                 </article>
+            </section>
+            <section>
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form id="editForm" method="post" action="../controllers/editor_agenda_psicologa.php">
+                        <input type="hidden" id="editId" name="id">
+                        <input type="text" id="editNombre" name="nombre" placeholder="Nombre">
+                        <input type="text" id="editApellido" name="apellido" placeholder="Apellido">
+                        <input type="text" id="editCarrera" name="carrera" placeholder="Carrera">
+                        <input type="text" id="editSemestre" name="semestre" placeholder="Semestre">
+                        <input type="text" id="editDescCita" name="desc_cita" placeholder="Descripción de la cita">
+                        <input type="date" id="editFecha" name="fecha">
+                        <input type="time" id="editHora" name="hora">
+                        <input type="submit" name="submit" value="Guardar cambios">
+                    </form>
+                </div>
+            </div>
             </section>
         </article>
     </main>

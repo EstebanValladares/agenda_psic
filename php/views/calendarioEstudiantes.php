@@ -35,6 +35,7 @@ if (empty($_SESSION["id"])){
                     </picture>
                     <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
                     <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
+                    <a href="#"><i class="fa-solid fa-clock iconCalendario"></i>Citas</a>
                     <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
                 </div>
             </section>
@@ -92,9 +93,8 @@ if (empty($_SESSION["id"])){
                                         }
                                         ?>
                                 </select>
-                                <label for="hora">Hora (HH:MM):</label>
-                                <input type="time" name="hora" class="inputs-cita" placeholder="HH:MM">
-                                <input type="date" name="fecha" class="inputs-cita">
+                                <label for="hora">Describe tu horario disponible</label>
+                                <textarea id="desc_cita" class="inputs-cita" name="desc_cita" placeholder="Describe..."></textarea>
                                 <button type="submit" class="bton-envio">Registrar</button>
                             </form>
                     </article>

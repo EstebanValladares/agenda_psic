@@ -1,3 +1,24 @@
+/* Ver contrasena */
+
+const eyeIcon = document.querySelector('.fa-regular.fa-eye');
+eyeIcon.addEventListener('click', togglePasswordVisibility);
+
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const type = passwordInput.type;
+  
+    if (type === 'password') {
+      passwordInput.type = 'text';
+      eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+    }
+  }
+  
+
+/* selects */
+
 document.getElementById('semestre').addEventListener('change', function() {
     document.getElementById('semestre').value = this.options[this.selectedIndex].text;
 });
@@ -6,6 +27,7 @@ document.getElementById('carrera').addEventListener('change', function() {
 });
 
 // Script AJAX para enviar el formulario
+
 document.getElementById('formulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita que el formulario se envíe normalmente
     var formData = new FormData(this); // Obtiene los datos del formulario
@@ -23,4 +45,3 @@ document.getElementById('formulario').addEventListener('submit', function(event)
     xhr.send(formData); // Envía los datos del formulario al controlador
 });
 
-/* boton cofiguracion */

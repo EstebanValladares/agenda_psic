@@ -6,9 +6,9 @@ include "../php/controllers/conexion_bd.php";
 
 /* psicologos */
 if (!empty($_POST["btningresopsicologo"])){
-    if (!empty($_POST["tarjeta"]) and !empty($_POST["pass"])) {
+    if (!empty($_POST["tarjeta"]) and !empty($_POST["password"])) {
         $tarjeta =$_POST["tarjeta"];
-        $password =$_POST["pass"];
+        $password =$_POST["password"];
         $sql = $conexion->prepare("SELECT * FROM psicologos WHERE no_tarjeta=? AND password=?");
         if ($sql === false) {
             die("Error al consultar los datos: " . $conexion->error);

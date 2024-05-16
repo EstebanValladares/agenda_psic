@@ -48,8 +48,8 @@
                 <form method="post" action="" class="flex flex-col gap-4">
                     <input class="p-2 mt-8 border-b-2 focus:outline-none focus:border-blue-400 " type="text" name="tarjeta" placeholder="No. de tarjeta" id="tarjeta">
                     <div class="relative">
-                    <input class="p-2 border-b-2 w-full focus:outline-none focus:border-blue-400 " type="password" name="pass" placeholder="Contraseña" id="pass">
-                    <i class="fa-regular fa-eye absolute top-1/3 right-3 -translate-y-1/2"></i>
+                    <input class="p-2 border-b-2 w-full focus:outline-none focus:border-blue-400 " type="password" name="password" placeholder="Contraseña" id="password">
+                    <i class="fa-regular fa-eye absolute top-1/3 right-3 -translate-y-1/2 cursor-pointer"></i>
                     </div>      
                     <div class="grid grid-cols-2 mt-8">
                         <div>
@@ -63,11 +63,9 @@
                 </form>
                 <div>
                 </div>
-
-
             </div>
         </div>
     </section>
-
 </body>
 </html>
+<script src="/js/script.js"></script>

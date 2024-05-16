@@ -4,9 +4,9 @@ session_start();
 include "../php/controllers/conexion_bd.php";
 /* Docentes */
 if (!empty($_POST["btningresodocentes"])){
-    if (!empty($_POST["tarjeta"]) and !empty($_POST["pass"])) {
+    if (!empty($_POST["tarjeta"]) and !empty($_POST["password"])) {
         $tarjeta =$_POST["tarjeta"];
-        $password =$_POST["pass"];
+        $password =$_POST["password"];
         $sql = $conexion->prepare("SELECT * FROM docentes WHERE no_tarjeta=? AND password=?");
         if ($sql === false) {
             die("Error al consultar los datos: " . $conexion->error);

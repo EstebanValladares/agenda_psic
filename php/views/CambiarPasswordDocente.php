@@ -10,6 +10,11 @@ if (empty($_SESSION["id"])){
           }
       }
 ?>
+<?php 
+    if($_SESSION['password'] === 'tecvalles'){
+        echo "<p class='alertaContraseña'>Cambiar la contraseña al nip institucional</p>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,8 +40,8 @@ if (empty($_SESSION["id"])){
                     <picture class="logotec">
                         <img src="../../img/logotec.jpg" alt="">
                     </picture>
-                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
-                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
+                    <a href="../views/docentes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
+                    <a href="../views/calendarioDocentes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
                     <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
                     <a href="">Cambiar contrasena</a>
                     <a href="/php/auth/cerrar_sesion.php">Cerra Sesion</a>
@@ -55,7 +60,7 @@ if (empty($_SESSION["id"])){
                         <div class=" mt-2">
                         <p class="text-gray-500 text-lg p-2">En seguida podrás cambiar tu contraseña actual del sistema, recuerda que debe tener 8 caracteres como mínimo, 1 número y 1 caracter especial.</p>
                         <form action="" method="post" class=" p-2 text-lg">
-                            <?php include "../controllers/cambiar_pass.php"; ?>
+                            <?php include "../controllers/cambiar_pass_docente.php"; ?>
                             <div class=" flex flex-col">
                             <label for="">Contrasena actual *</label>
                             <input type="text" name="passactual" id="passactual" class="border border-gray-300 rounded-md mb-5">

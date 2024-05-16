@@ -2,20 +2,15 @@
 /* session_start();
 if (empty($_SESSION["id"])){
     header("location: index.php");
-} */
-
-if (session_status() == PHP_SESSION_NONE) {
-  session_start();
-  if (empty($_SESSION["id"])){
-    header("location: index.php");
-  }
-}
-
+ */
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+        if (empty($_SESSION["id"])){
+            header("location: index.php");
+          }
+      }
 ?>
 <?php
-/* ini_set('display_errors', 1);
-error_reporting(E_ALL);
- */
 include("../controllers/conexion_bd.php");
 
 if (!empty($_POST["btnchangepass"])){
@@ -28,7 +23,7 @@ if (!empty($_POST["btnchangepass"])){
         $pass_new_confirmation = $_POST["passnewconfirmation"];
 
         if($pass_new === $pass_new_confirmation){
-            $consulta = $conexion->prepare("UPDATE estudiantes SET password = ? WHERE id_estudiante = ?");
+            $consulta = $conexion->prepare("UPDATE docentes SET password = ? WHERE id = ?");
 
             $consulta->bind_param("ss", $pass_new, $userId);
             $consulta->execute();

@@ -1,8 +1,10 @@
 <?php
-session_start();
-if (empty($_SESSION["id"])){
-    header("location: index.php");
-}
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    if (empty($_SESSION["id"])){
+      header("location: index.php");
+    }
+  }
 ?>
 <?php 
     if($_SESSION['password'] === 'tecvalles'){
@@ -35,6 +37,8 @@ if (empty($_SESSION["id"])){
                     <a href="../views/docentes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
                     <a href="../views/calendarioDocentes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
                     <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
+                    <a href="cambiarPasswordDocente.php">Cambiar contrasena</a>
+                    <a href="/php/auth/cerrar_sesion.php">Cerra Sesion</a>
                 </div>
             </section>
             <section class="section-container">

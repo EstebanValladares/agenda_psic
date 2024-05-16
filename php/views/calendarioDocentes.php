@@ -32,8 +32,8 @@ if (empty($_SESSION["id"])){
                     <picture class="logotec">
                         <img src="../../img/logotec.jpg" alt="">
                     </picture>
-                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
-                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
+                    <a href="../views/docentes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
+                    <a href="../views/calendarioDocentes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
                     <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
                 </div>
             </section>

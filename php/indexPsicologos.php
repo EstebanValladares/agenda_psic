@@ -34,7 +34,7 @@
                 <p class=" text-base italic" style=" color:#053B5E">Ingresa tu numero de tarjeta y la contraseña "tecvalles"</p>
                 <?php
                 include "../php/controllers/conexion_bd.php";
-                include "../php/auth/controlador_login.php";
+                include "../php/auth/controlador_login_psicologo.php";
                 ?>
                 </div>
                 <?php

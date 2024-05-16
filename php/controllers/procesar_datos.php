@@ -13,9 +13,6 @@ if (session_status() == PHP_SESSION_NONE) {
 ?>
 
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 include("../controllers/conexion_bd.php");
 
 if (!empty($_POST["btnmodificardatos"])){

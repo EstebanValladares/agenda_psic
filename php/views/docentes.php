@@ -8,6 +8,7 @@ if (session_status() == PHP_SESSION_NONE) {
 $departamento = $_SESSION["departamento"];
 $rfc = $_SESSION["rfc"];
 $curp = $_SESSION["curp"];
+$no_tarjeta = $_SESSION["no_tarjeta"];
 $nombre = $_SESSION["nombre"];
 $nombramiento = $_SESSION["nombramiento"];
 $correo_electronico = $_SESSION["correo_electronico"];
@@ -58,6 +59,7 @@ $academia = $_SESSION["academia"];
                         <figure>
                             <i class="fa-solid fa-user"></i>
                         </figure>
+                        <p>Nombre: <?php echo "$nombre" ?></p>
                         <p>RFC: <?php echo "$rfc" ?></p>
                         <p>CRUP: <?php echo "$curp" ?></p>
                         <p>CORREO: <?php echo "$correo_electronico" ?></p>
@@ -67,12 +69,15 @@ $academia = $_SESSION["academia"];
                 <article class="general">
                     <h2 class="cards">Información del docente</h2>
                     <section class="school">
-                        <p>NOMBRE: <?php echo "$nombre" ?></p>
+                        <p>Numero de Tarjeta: <?php echo "$no_tarjeta" ?></p>
                         <p>NOMBRAMINETO: <?php echo "$nombramiento" ?></p>
                         <p>DEPARTAMENTO: <?php echo "$departamento" ?></p>
                         <p>ACADEMIA: <?php echo "$academia" ?></p>
                     </section>
                 </article>
+                <section class="">
+                    <a href="editar_docente.php"><p class="">Editar informacion</p></a>
+                    </section>
             </section>
         </article>
     </main>

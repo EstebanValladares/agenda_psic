@@ -16,7 +16,7 @@
             if ($stmt = $conexion->prepare($sql)) {
                 $stmt->bind_param("ssissssi", $nombre, $apellido, $semestre, $carrera, $desc_cita, $fecha, $hora, $id);
                 if ($stmt->execute()) {
-                    header("location: success.php");
+                    header("location: ../views/psicologa.php");
                     exit();
                 } else {
                     echo "Oops! Something went wrong. Please try again later.";
@@ -56,12 +56,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c91ca5f5f4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../style/styleOptions.css">
+<!--     <link href="../login-tec/src/estilos.css" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-<form id="formulario" class="flex flex-col gap-4 w-full nuevFormulario" action="<?=$_SERVER['PHP_SELF']?>?id=<?=$id?>" method="post">
+<body class="container-formEditFloat">
+<form id="formulario" class="flex flex-col gap-4 w-full editFormulario" action="<?=$_SERVER['PHP_SELF']?>?id=<?=$id?>" method="post">
 <input type="text" name="nombre" placeholder="Nombre" class="inputs-cita" value="<?php echo $nombre; ?>">
         <input type="text" name="apellido" id="apellido" placeholder="Apellidos" class="inputs-cita" value="<?php echo $apellido; ?>">
         <input type="hidden" name="id" value="<?=$id?>">
@@ -90,11 +96,11 @@
                 }
                 ?>
         </select>
-        <label for="hora">Describe tu horario disponible</label>
         <textarea id="desc_cita" class="inputs-cita" name="desc_cita" placeholder="Describe..."><?php echo $desc_cita; ?></textarea>
         <input type="date" name="fecha" id="fecha" placeholder="Fecha" class="inputs-cita" value="<?php echo $fecha; ?>">
         <input type="time" name="hora" id="hora" placeholder="Hora" class="inputs-cita" value="<?php echo $hora; ?>">
         <button type="submit" class="bton-envio" name="actualizar">Registrar</button>
     </form>
+    <button class="exit-edit"><a href="../views/psicologa.php">X</a></button>
 </body>
 </html>

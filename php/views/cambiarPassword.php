@@ -37,8 +37,9 @@ if (empty($_SESSION["id"])){
                     </picture>
                     <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
                     <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
+                    <a href="../views/registroCitasAlumno.php"><i class="fa-solid fa-clock iconCalendario"></i>Citas</a>
                     <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
-                    <a href="">Cambiar contrasena</a>
+                    <a href="cambiarPassword.php">Cambiar contrasena</a>
                     <a href="/php/auth/cerrar_sesion.php">Cerra Sesion</a>
                 </div>
             </section>

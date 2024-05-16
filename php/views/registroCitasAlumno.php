@@ -29,16 +29,16 @@ if (empty($_SESSION["id"])){
                     <picture class="logotec">
                         <img src="../../img/logotec.jpg" alt="">
                     </picture>
-                    <a href="../../php/views/psicologa.php"><i class="fa-solid fa-envelope iconUser"></i>Solicitudes</a>
+                    <a href="../views/estudiantes.php"><i class="fa-solid fa-user iconUser"></i>Información</a>
+                    <a href="../views/calendarioEstudiantes.php"><i class="fa-solid fa-calendar iconCalendario"></i>Calendario</a>
+                    <a href="../views/registroCitasAlumno.php"><i class="fa-solid fa-clock iconCalendario"></i>Citas</a>
+                    <a href=""><i class="fa-solid fa-gear"></i>Configuración</a>
+                    <a href="cambiarPassword.php">Cambiar contrasena</a>
                     <a href="/php/auth/cerrar_sesion.php">Cerra Sesion</a>
                 </div>
             </section>
             <section class="section-container2">
             <h3>Solicitudes</h3>
-                <form method="post" class="envio-date">
-                    <input type="text" name="search" placeholder="Buscar por nombre o apellido" class="search">
-                    <input type="submit" name="submit" value="Buscar" class="bton-search">
-                </form>
                 <article class="container-input">
                 <?php
                     $searchResult = '';
@@ -67,11 +67,10 @@ if (empty($_SESSION["id"])){
                     
                         if ($result->num_rows > 0) {
                             $searchResult .= "<table class='table-citas'>";
-                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th><th>Editar</th></tr>";
+                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
                             while ($row = $result->fetch_assoc()) {
-                                $id = $row["id_cita"];
                                 $searchResult .= sprintf(
-                                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><a href='../../php/views/editor_agenda_psicologa.php?id=%s' class='edit-horFec'>Editar</a></td></tr>",
+                                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='colorCita';'>%s</td><td class='colorCita';'>%s</td></tr>",
                                     $row["nombre"],
                                     $row["apellido"],
                                     $row["carrera"],

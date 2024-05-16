@@ -411,7 +411,7 @@ textarea{
     position: absolute;
     padding: 15px;
     font-size: 1.4rem;
-    right: 2%;
+    left: 2%;
     bottom: 3%;
 }
 @keyframes blink{
@@ -520,4 +520,50 @@ textarea{
     color: var(--colorBlanco);
     padding: 15px;
 }
+.colorCita{
+    color: var(--colorRojo);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
+/* Estilos editar formulario psicologa */
+.container-formEditFloat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8vh 40vw;
+    background-color: rgba(0, 0, 0, 0.91);
+}
+.container-formEditFloat input,textarea,select{
+    margin-bottom: 1rem;
+}
+.exit-edit{
+    background-color: var(--colorRojo);
+    color: var(--colorBlanco);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+}
+.exit-edit a{
+    text-decoration: none;
+    color: var(--colorBlanco);
+}
+
+/* alerta de formularios de envio de datos correctos o no */
+.error {
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+}

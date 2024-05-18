@@ -41,55 +41,59 @@ if (empty($_SESSION["id"])){
             <h3>Solicitudes</h3>
                 <article class="container-input">
                 <?php
-                    $searchResult = '';
-                    if (isset($_POST['submit'])) {
-                        $search = $_POST['search'];
-                        $sqlSearch = "SELECT * FROM citasprueba WHERE nombre LIKE ? OR apellido LIKE ?";
-                        $stmt = $conexion->prepare($sqlSearch);
-                        $param = "%{$search}%";
-                        $stmt->bind_param("ss", $param, $param);
-                        $stmt->execute();
-                        $resultSearch = $stmt->get_result();
-                    
-                        if ($resultSearch->num_rows > 0) {
-                            $searchResult .= "<table class='table-citas'>";
-                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
-                            while ($row = $resultSearch->fetch_assoc()) {
-                                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["desc_cita"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
-                            }
-                            $searchResult .= "</table>";
-                        } else {
-                            $searchResult = "No se encontraron resultados";
-                        }
-                    } else {
-                        $sql = "SELECT * FROM citasprueba";
-                        $result = $conexion->query($sql);
-                    
-                        if ($result->num_rows > 0) {
-                            $searchResult .= "<table class='table-citas'>";
-                            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
-                            while ($row = $result->fetch_assoc()) {
-                                $searchResult .= sprintf(
-                                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='colorCita';'>%s</td><td class='colorCita';'>%s</td></tr>",
-                                    $row["nombre"],
-                                    $row["apellido"],
-                                    $row["carrera"],
-                                    $row["semestre"],
-                                    $row["desc_cita"],
-                                    $row["fecha"],
-                                    $row["hora"],
-                                    $id
-                                );
-                            }
-                            $searchResult .= "</table>";
-                        } else {
-                            $searchResult = "0 resultados";
-                        }
-                    }
-                    $conexion->close();
-                    echo $searchResult;
-                    
-                ?>
+    $searchResult = '';
+    if (isset($_POST['submit'])) {
+        $search = $_POST['search'];
+        $sqlSearch = "SELECT * FROM citasprueba WHERE nombre LIKE ? OR apellido LIKE ?";
+        $stmt = $conexion->prepare($sqlSearch);
+        $param = "%{$search}%";
+        $stmt->bind_param("ss", $param, $param);
+        $stmt->execute();
+        $resultSearch = $stmt->get_result();
+    
+        if ($resultSearch->num_rows > 0) {
+            $searchResult .= "<table class='table-citas'>";
+            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
+            while ($row = $resultSearch->fetch_assoc()) {
+                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["desc_cita"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
+            }
+            $searchResult .= "</table>";
+        } else {
+            $searchResult = "No se encontraron resultados";
+        }
+    } else {
+        // Aquí es donde se realiza la modificación
+        $nombre_usuario = $_SESSION['nombre'];
+        $sql = "SELECT * FROM citasprueba WHERE nombre = ?";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bind_param("s", $nombre_usuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        if ($result->num_rows > 0) {
+            $searchResult .= "<table class='table-citas'>";
+            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
+            while ($row = $result->fetch_assoc()) {
+                $searchResult .= sprintf(
+                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='colorCita';'>%s</td><td class='colorCita';'>%s</td></tr>",
+                    $row["nombre"],
+                    $row["apellido"],
+                    $row["carrera"],
+                    $row["semestre"],
+                    $row["desc_cita"],
+                    $row["fecha"],
+                    $row["hora"],
+                    $id
+                );
+            }
+            $searchResult .= "</table>";
+        } else {
+            $searchResult = "0 resultados";
+        }
+    }
+    $conexion->close();
+    echo $searchResult;
+?>
                 </article>
             </section>
         </article>

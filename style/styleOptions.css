@@ -555,15 +555,34 @@ textarea{
 
 /* alerta de formularios de envio de datos correctos o no */
 .error {
-    background-color: #f44336;
+    background-color: var(--colorRojo);
     color: white;
     padding: 15px;
     margin-bottom: 15px;
 }
 
 .success {
-    background-color: #4CAF50;
+    background-color: var(--colorVerde);
     color: white;
     padding: 15px;
     margin-bottom: 15px;
+}
+
+/* MENSAJES DE ENVIO DE DATOS DE NUEVA CITA */
+
+.alert {
+    position: fixed;
+    left: 2%;
+    bottom: 10%;
+    padding: 20px;
+    color: white;
+    z-index: 1000;
+}
+
+.error {
+    background-color: var(--colorRojo);
+}
+
+.success {
+    background-color: var(--colorVerde);
 }

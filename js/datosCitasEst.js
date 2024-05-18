@@ -25,3 +25,29 @@ window.addEventListener('DOMContentLoaded',(event)=>{
         
     });
 });
+
+document.getElementById('formulario').addEventListener('submit', function(event) {
+    var nombre = document.getElementsByName('nombre')[0].value;
+    var apellido = document.getElementsByName('apellido')[0].value;
+    var semestre = document.getElementsByName('semestre')[0].value;
+    var carrera = document.getElementsByName('carrera')[0].value;
+    var desc_cita = document.getElementsByName('desc_cita')[0].value;
+
+    if (!nombre || !apellido || !semestre || !carrera || !desc_cita) {
+        event.preventDefault();
+        showAlert('Por favor, complete todos los campos.', 'error');
+    } else {
+        showAlert('Formulario enviado con éxito.', 'success');
+    }
+    
+    function showAlert(message, type) {
+        var alertBox = document.createElement('div');
+        alertBox.textContent = message;
+        alertBox.classList.add(type, 'alert');
+        document.body.appendChild(alertBox);
+    
+        setTimeout(function() {
+            alertBox.remove();
+        }, 5000);
+    }
+});

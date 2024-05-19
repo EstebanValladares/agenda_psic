@@ -63,11 +63,11 @@ if (empty($_SESSION["id"])){
                             <?php include "../controllers/cambiar_pass_docente.php"; ?>
                             <div class=" flex flex-col">
                             <label for="">Contrasena actual *</label>
-                            <input type="text" name="passactual" id="passactual" class="border border-gray-300 rounded-md mb-5">
+                            <input type="password" name="passactual" id="passactual" class="border border-gray-300 rounded-md mb-5">
                             <label for="">Contrasena nueva *</label>
-                            <input type="text" name="passnew" id="passnew" class="border border-gray-300 rounded-md mb-5">
+                            <input type="password" name="passnew" id="passnew" class="border border-gray-300 rounded-md mb-5">
                             <label for=""> Repetir Contrasena nueva *</label>
-                            <input type="text" name="passnewconfirmation" id="passnewconfirmation" class="border border-gray-300 rounded-md">
+                            <input type="password" name="passnewconfirmation" id="passnewconfirmation" class="border border-gray-300 rounded-md">
                             <div class=" mt-9 flex justify-end">
                                 <div>
                                 <button class=" bg-gray-300 rounded-md p-1 cursor-pointer"><a href="./calendarioEstudiantes.php"></a> Atras </button>

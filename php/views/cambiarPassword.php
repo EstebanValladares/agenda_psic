@@ -1,8 +1,4 @@
 <?php
-/* session_start();
-if (empty($_SESSION["id"])){
-    header("location: index.php");
- */
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
         if (empty($_SESSION["id"])){
@@ -12,7 +8,6 @@ if (empty($_SESSION["id"])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +17,7 @@ if (empty($_SESSION["id"])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- link de tailwind -->
- <!--    <link href="../src/output.css" rel="stylesheet"> -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+<!--     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet"> -->
     <title>Document</title>
 </head>
 
@@ -59,11 +53,11 @@ if (empty($_SESSION["id"])){
                             <?php include "../controllers/cambiar_pass.php"; ?>
                             <div class=" flex flex-col">
                             <label for="">Contrasena actual *</label>
-                            <input type="text" name="passactual" id="passactual" class="border border-gray-300 rounded-md mb-5">
+                            <input type="password" name="passactual" id="passactual" class="border border-gray-300 rounded-md mb-5">
                             <label for="">Contrasena nueva *</label>
-                            <input type="text" name="passnew" id="passnew" class="border border-gray-300 rounded-md mb-5">
+                            <input type="password" name="passnew" id="passnew" class="border border-gray-300 rounded-md mb-5">
                             <label for=""> Repetir Contrasena nueva *</label>
-                            <input type="text" name="passnewconfirmation" id="passnewconfirmation" class="border border-gray-300 rounded-md">
+                            <input type="password" name="passnewconfirmation" id="passnewconfirmation" class="border border-gray-300 rounded-md">
                             <div class=" mt-9 flex justify-end">
                                 <div>
                                 <button class=" bg-gray-300 rounded-md p-1 cursor-pointer"><a href="./calendarioEstudiantes.php"></a> Atras </button>

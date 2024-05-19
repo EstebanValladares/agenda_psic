@@ -21,20 +21,26 @@ if (!empty($_POST["btnchangepass"])){
         $pass_actual = $_POST["passactual"];
         $pass_new = $_POST["passnew"];
         $pass_new_confirmation = $_POST["passnewconfirmation"];
+        $longitudMaxima = 12;
 
-        if($pass_new === $pass_new_confirmation){
-            $consulta = $conexion->prepare("UPDATE docentes SET password = ? WHERE id = ?");
+        if(strlen($pass_new<$longitudMaxima)){
 
-            $consulta->bind_param("ss", $pass_new, $userId);
-            $consulta->execute();
-            if ($consulta->affected_rows > 0 ){
-                echo '<div class="datos-correctos" >Se cambio la contrasena</div>';
+            if($pass_new === $pass_new_confirmation){
+                $consulta = $conexion->prepare("UPDATE docentes SET password = ? WHERE id = ?");  
+                $consulta->bind_param("ss", $pass_new, $userId);
+                $consulta->execute();
+
+                if ($consulta->affected_rows > 0 ){
+                    echo '<div class="datos-correctos" >Se cambio la contrasena</div>';
+                } else {
+                    echo '<div class="datos-incorrectos" >Error al guardar los cambios</div>' . $consulta->error;
+                }
             } else {
-                echo '<div class="datos-incorrectos" >Error al guardar los cambios</div>' . $consulta->error;
+                echo '<div class="datos-incorrectos" >Las contrasenas no coinciden</div>';
             }
-        } else {
-            echo '<div class="datos-incorrectos" >Las contrasenas no coinciden</div>';
-        }
+        }else {
+                echo '<div class="datos-incorrectos" >La contraseña no puede tener más de ' . $longitudMaxima . ' caracteres.</div>';
+            }
     } else {
         echo '<div class="datos-incorrectos" >Completa todos los campos</div>';
     }

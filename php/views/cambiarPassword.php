@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- link de tailwind -->
-<!--     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -52,7 +52,7 @@
                         <form action="" method="post" class=" p-2 text-lg">
                             <?php include "../controllers/cambiar_pass.php"; ?>
                             <div class=" flex flex-col">
-                            <label for="">Contrasena actual *</label>
+                                <label for="">Contrasena actual *</label>
                             <input type="password" name="passactual" id="passactual" class="border border-gray-300 rounded-md mb-5">
                             <label for="">Contrasena nueva *</label>
                             <input type="password" name="passnew" id="passnew" class="border border-gray-300 rounded-md mb-5">

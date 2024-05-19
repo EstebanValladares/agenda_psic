@@ -83,7 +83,7 @@ if (empty($_SESSION["id"])){
                     $row["desc_cita"],
                     $row["fecha"],
                     $row["hora"],
-                    $id
+                    //$id
                 );
             }
             $searchResult .= "</table>";

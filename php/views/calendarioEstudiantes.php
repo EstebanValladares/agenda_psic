@@ -42,7 +42,6 @@ if (empty($_SESSION["id"])){
                 </div>
             </section>
             <section class="section-container">
-            <a href="../auth/cerrar_sesion.php"><p class="exit">Cerrar Sesión</p></a>
                 <div class="container">
                     <div class="calendar">
                         <div class="header">
@@ -95,6 +94,8 @@ if (empty($_SESSION["id"])){
                                         }
                                         ?>
                                 </select>
+                                <input type="date" name="fecha" class="inputs-cita fechas">
+                                <input type="time" name="hora" class="inputs-cita">
                                 <label for="hora">Describe tu horario disponible</label>
                                 <textarea id="desc_cita" class="inputs-cita" name="desc_cita" placeholder="Describe..."></textarea>
                                 <button type="submit" class="bton-envio">Registrar</button>

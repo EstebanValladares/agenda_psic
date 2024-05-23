@@ -51,3 +51,8 @@ document.getElementById('formulario').addEventListener('submit', function(event)
         }, 5000);
     }
 });
+
+const datesColors = document.querySelector('.colorCita');
+if(datesColors === 'pendiente'){
+    console.log('esta pendiente')
+}

@@ -53,9 +53,9 @@ if (empty($_SESSION["id"])){
     
         if ($resultSearch->num_rows > 0) {
             $searchResult .= "<table class='table-citas'>";
-            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
+            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th><th>Estado</th></tr>";
             while ($row = $resultSearch->fetch_assoc()) {
-                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["desc_cita"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td></tr>";
+                $searchResult .= "<tr><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["carrera"] . "</td><td>" . $row["semestre"] . "</td><td>" . $row["desc_cita"] . "</td><td>" . $row["fecha"] . "</td><td>" . $row["hora"] . "</td><td>" . $row["estado"] . "</td></tr>";
             }
             $searchResult .= "</table>";
         } else {
@@ -64,32 +64,51 @@ if (empty($_SESSION["id"])){
     } else {
         // Aquí es donde se realiza la modificación
         $nombre_usuario = $_SESSION['nombre'];
-        $sql = "SELECT * FROM citasprueba WHERE nombre = ?";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("s", $nombre_usuario);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    
-        if ($result->num_rows > 0) {
-            $searchResult .= "<table class='table-citas'>";
-            $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
-            while ($row = $result->fetch_assoc()) {
-                $searchResult .= sprintf(
-                    "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='colorCita';'>%s</td><td class='colorCita';'>%s</td></tr>",
-                    $row["nombre"],
-                    $row["apellido"],
-                    $row["carrera"],
-                    $row["semestre"],
-                    $row["desc_cita"],
-                    $row["fecha"],
-                    $row["hora"],
-                    //$id
-                );
+$sql = "SELECT * FROM citasprueba WHERE nombre = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("s", $nombre_usuario);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $searchResult .= "<table class='table-citas'>";
+    $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Estado</th><th>Fecha</th><th>Hora</th></tr>";
+    while ($row = $result->fetch_assoc()) {
+        if ($row["estado"] == "Aprovado") {
+            if ($row["estado"] == "Aprovado") {
+                $color = "green";
+            } else {
+                $color = "red";
             }
-            $searchResult .= "</table>";
+            
+            $searchResult .= sprintf(
+                "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td style='color: %s;'>%s</td><td>%s</td><td>%s</td></tr>",
+                $row["nombre"],
+                $row["apellido"],
+                $row["carrera"],
+                $row["semestre"],
+                $row["desc_cita"],
+                $color,
+                $row["estado"],
+                $row["fecha"],
+                $row["hora"]
+            );
         } else {
-            $searchResult = "0 resultados";
+            $searchResult .= sprintf(
+                "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='colorCita';'>%s</td></tr>",
+                $row["nombre"],
+                $row["apellido"],
+                $row["carrera"],
+                $row["semestre"],
+                $row["desc_cita"],
+                $row["estado"]
+            );
         }
+    }
+    $searchResult .= "</table>";
+} else {
+    $searchResult = "0 resultados";
+}
     }
     $conexion->close();
     echo $searchResult;

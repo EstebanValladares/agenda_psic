@@ -1,4 +1,5 @@
-const daysContainer = document.querySelector(".days"),
+document.addEventListener('DOMContentLoaded',(e)=>{
+    const daysContainer = document.querySelector(".days"),
     nextBtn = document.querySelector(".next-btn"),
     prevBtn = document.querySelector(".prev-btn"),
     month = document.querySelector(".month"),
@@ -28,6 +29,20 @@ const date = new Date();
 let currentMonth = date.getMonth();
 let currentYear = date.getFullYear();
 
+function addDayClickEvents() {
+    const dayElements = document.querySelectorAll('.day');
+    dayElements.forEach(dayElement => {
+        dayElement.addEventListener('click', function() {
+            const dayNumber = this.textContent;
+            const fullDate = new Date(currentYear, currentMonth, dayNumber);
+            console.log(String(fullDate.getDate()).padStart(2, '0') + '/' + String(fullDate.getMonth() + 1).padStart(2, '0') + '/' + fullDate.getFullYear());
+            const fechaActual = fullDate.getFullYear() + '-' + String(fullDate.getMonth() + 1).padStart(2, '0') + '-' + String(fullDate.getDate()).padStart(2, '0');
+            const inputDate = document.querySelector('.fechas');
+            inputDate.value = fechaActual;
+        });
+    });
+}
+
 function renderCalendar() {
     date.setDate(1);
     const firstDay = new Date(currentYear, currentMonth, 1);
@@ -52,7 +67,7 @@ function renderCalendar() {
         ) {
             days += `<div class="day today">${i}</div>`;
         } else {
-            days += `<div class="day ">${i}</div>`;
+            days += `<div class="day">${i}</div>`;
         }
     }
     for (let j = 1; j <= nextDays; j++) {
@@ -60,6 +75,9 @@ function renderCalendar() {
     }
     hideTodayBtn();
     daysContainer.innerHTML = days;
+
+    daysContainer.innerHTML = days;
+    addDayClickEvents(); 
 }
 
 renderCalendar();
@@ -92,18 +110,11 @@ function hideTodayBtn() {
     if (
         currentMonth === new Date().getMonth() &&
         currentYear === new Date().getFullYear()
-    ) {
-        todayBtn.style.display = "none";
-    } else {
-        todayBtn.style.display = "flex";
+        ) {
+            todayBtn.style.display = "none";
+        } else {
+            todayBtn.style.display = "flex";
+        }
     }
-}
-
-formularioFlotante.addEventListener('click', () => {
-    formularioPhp.style.display = 'flex';
+    
 });
-cerrarForm.addEventListener('click', () => {
-    formularioPhp.style.display = 'none';
-});
-
-

@@ -10,11 +10,12 @@
             $desc_cita = $_POST['desc_cita'];
             $fecha = $_POST['fecha'];
             $hora = $_POST['hora'];
-
-            $sql = "UPDATE citasprueba SET nombre = ?, apellido = ?, semestre = ?, carrera = ?, desc_cita = ?, fecha = ?, hora = ? WHERE id_cita = ?";
-
+            $estado = $_POST['estado']; // Get the estado from the form
+        
+            $sql = "UPDATE citasprueba SET nombre = ?, apellido = ?, semestre = ?, carrera = ?, desc_cita = ?, fecha = ?, hora = ?, estado = ? WHERE id_cita = ?"; // Add estado to the SQL query
+        
             if ($stmt = $conexion->prepare($sql)) {
-                $stmt->bind_param("ssissssi", $nombre, $apellido, $semestre, $carrera, $desc_cita, $fecha, $hora, $id);
+                $stmt->bind_param("ssisssssi", $nombre, $apellido, $semestre, $carrera, $desc_cita, $fecha, $hora, $estado, $id); // Bind estado to the prepared statement
                 if ($stmt->execute()) {
                     header("location: ../views/psicologa.php");
                     exit();
@@ -99,6 +100,7 @@
         <textarea id="desc_cita" class="inputs-cita" name="desc_cita" placeholder="Describe..."><?php echo $desc_cita; ?></textarea>
         <input type="date" name="fecha" id="fecha" placeholder="Fecha" class="inputs-cita" value="<?php echo $fecha; ?>">
         <input type="time" name="hora" id="hora" placeholder="Hora" class="inputs-cita" value="<?php echo $hora; ?>">
+        <input type="text" name="estado" id="estado" placeholder="estado" class="inputs-cita" value="Aprovado" readonly>
         <button type="submit" class="bton-envio" name="actualizar">Registrar</button>
     </form>
     <button class="exit-edit"><a href="../views/psicologa.php">X</a></button>

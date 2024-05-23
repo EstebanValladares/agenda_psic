@@ -20,7 +20,7 @@ if (!empty($_POST["btnchangepass"])){
         $pass_new_confirmation = $_POST["passnewconfirmation"];
         $longitudMaxima = 12;
 
-        if(strlen($pass_new < $longitudMaxima)){
+        if(strlen($pass_new > $longitudMaxima)){
 
             if($pass_new === $pass_new_confirmation){
                 $consulta = $conexion->prepare("UPDATE estudiantes SET password = ? WHERE id_estudiante = ?");

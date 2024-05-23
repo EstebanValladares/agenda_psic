@@ -95,7 +95,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                         }
                                         ?>
                                 </select>
-                                <input type="date" name="fecha" class="inputs-cita">
+                                <input type="date" name="fecha" class="inputs-cita fechas">
                                 <input type="time" name="hora" class="inputs-cita">
                                 <button type="submit" class="bton-envio">Registrar</button>
                             </form>
@@ -105,7 +105,6 @@ if (session_status() == PHP_SESSION_NONE) {
         </article>
     </main>
 </body>
-
     <script src="../../js/app.js"></script>
     <script src="../../js/script.js"></script>
     <script src="../../js/logoutTimer.js"></script>

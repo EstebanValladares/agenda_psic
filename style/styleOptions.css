@@ -226,7 +226,7 @@ h2 {
 
 .datesCits {
     width: 25vw;
-    height: 80vh;
+    height: 90vh;
     background-color: var(--colorBlanco);
     margin: 10px;
     border-radius: 10px;
@@ -334,7 +334,7 @@ h2 {
     overflow-wrap: break-word;
 }
 textarea{
-    height: 180px;
+    height: 100px;
 }
 .bton-envio{
     background-color: var(--colorAzul);
@@ -522,8 +522,6 @@ textarea{
 }
 .colorCita{
     color: var(--colorRojo);
-    font-size: 1.2rem;
-    font-weight: bold;
 }
 
 /* Estilos editar formulario psicologa */

@@ -1,14 +1,15 @@
 <?php
 include '../controllers/conexion_bd.php';
 session_start();
-if (empty($_SESSION["id"])){
-    header("location: index.php");
-}
 
+if (empty($_SESSION["id"])) {
+    header("location: index.php");
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,9 +19,11 @@ if (empty($_SESSION["id"])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- link de tailwind -->
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
-
 <body>
     <main>
         <article class="articleAll">
@@ -30,17 +33,18 @@ if (empty($_SESSION["id"])){
                         <img src="../../img/logotec.jpg" alt="">
                     </picture>
                     <a href="../../php/views/psicologa.php"><i class="fa-solid fa-envelope iconUser"></i>Solicitudes</a>
-                    <a href="/php/auth/cerrar_sesion.php">Cerra Sesion</a>
+                    <a href="/php/auth/cerrar_sesion.php">Cerrar Sesion</a>
                 </div>
             </section>
             <section class="section-container2">
-            <h3>Solicitudes</h3>
-                <form method="post" class="envio-date">
+                <h3>Solicitudes</h3>
+                <form method="post" action="../controllers/download_csv.php" class="envio-date">
                     <input type="text" name="search" placeholder="Buscar por nombre o apellido" class="search">
                     <input type="submit" name="submit" value="Buscar" class="bton-search">
+                    <input type="submit" name="download_csv" value="Descargar CSV" class="bton-download bg-blue-600 rounded-lg text-white ml-5">
                 </form>
                 <article class="container-input">
-                <?php
+                    <?php
                     $searchResult = '';
                     if (isset($_POST['submit'])) {
                         $search = $_POST['search'];
@@ -50,7 +54,7 @@ if (empty($_SESSION["id"])){
                         $stmt->bind_param("ss", $param, $param);
                         $stmt->execute();
                         $resultSearch = $stmt->get_result();
-                    
+
                         if ($resultSearch->num_rows > 0) {
                             $searchResult .= "<table class='table-citas'>";
                             $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th></tr>";
@@ -64,7 +68,7 @@ if (empty($_SESSION["id"])){
                     } else {
                         $sql = "SELECT * FROM citasprueba";
                         $result = $conexion->query($sql);
-                    
+
                         if ($result->num_rows > 0) {
                             $searchResult .= "<table class='table-citas'>";
                             $searchResult .= "<tr><th>Nombre</th><th>Apellido</th><th>Carrera</th><th>Semestre</th><th>Descripción</th><th>Fecha</th><th>Hora</th><th>Editar</th></tr>";
@@ -89,8 +93,7 @@ if (empty($_SESSION["id"])){
                     }
                     $conexion->close();
                     echo $searchResult;
-                    
-                ?>
+                    ?>
                 </article>
             </section>
         </article>

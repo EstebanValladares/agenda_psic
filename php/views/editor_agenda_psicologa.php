@@ -12,7 +12,7 @@
             $hora = $_POST['hora'];
             $estado = $_POST['estado']; // Get the estado from the form
         
-            $sql = "UPDATE citasprueba SET nombre = ?, apellido = ?, semestre = ?, carrera = ?, desc_cita = ?, fecha = ?, hora = ?, estado = ? WHERE id_cita = ?"; // Add estado to the SQL query
+            $sql = "UPDATE citasprueba SET nombre = ?, apellido = ?, carrera = ?, semestre = ?, desc_cita = ?, fecha = ?, hora = ?, estado = ? WHERE id_cita = ?"; // Add estado to the SQL query
         
             if ($stmt = $conexion->prepare($sql)) {
                 $stmt->bind_param("ssisssssi", $nombre, $apellido, $semestre, $carrera, $desc_cita, $fecha, $hora, $estado, $id); // Bind estado to the prepared statement

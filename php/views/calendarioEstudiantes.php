@@ -23,6 +23,13 @@ if (empty($_SESSION["id"])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Document</title>
+
+    <style>
+        .day.registered {
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -69,6 +76,9 @@ if (empty($_SESSION["id"])){
                         </div>
                         <div class="days">
                         </div>
+                    </div>
+                    <div>
+                        <p class="day-apart">Citas registradas en color rojo</p>
                     </div>
                 </div>
                 <div class="datesCits">

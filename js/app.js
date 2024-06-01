@@ -1,3 +1,15 @@
+let citas = [];
+
+fetch('../../php/controllers/obtenerFechas.php')
+    .then(response => response.json())
+    .then(data => {
+        citas = data.map(cita => {
+            const date = new Date(cita);
+            return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+        });
+        console.log(citas)
+    });
+
 document.addEventListener('DOMContentLoaded',(e)=>{
     const daysContainer = document.querySelector(".days"),
     nextBtn = document.querySelector(".next-btn"),
@@ -60,14 +72,15 @@ function renderCalendar() {
     }
 
     for (let i = 1; i <= lastDayDate; i++) {
+        const fecha = currentYear + '-' + String(currentMonth + 1).padStart(2, '0') + '-' + String(i).padStart(2, '0');
         if (
             i === new Date().getDate() &&
             currentMonth === new Date().getMonth() &&
             currentYear === new Date().getFullYear()
         ) {
-            days += `<div class="day today">${i}</div>`;
+            days += `<div class="day today ${citas.includes(fecha) ? 'registered' : ''}">${i}</div>`;
         } else {
-            days += `<div class="day">${i}</div>`;
+            days += `<div class="day ${citas.includes(fecha) ? 'registered' : ''}">${i}</div>`;
         }
     }
     for (let j = 1; j <= nextDays; j++) {

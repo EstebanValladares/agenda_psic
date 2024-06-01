@@ -584,3 +584,12 @@ textarea{
 .success {
     background-color: var(--colorVerde);
 }
+
+/* cambio de color de dia ocupado */
+.day.registered {
+    color: red;
+}
+.day-apart{
+    color: var(--colorRojo);
+    font-size: 1.3rem;
+}
